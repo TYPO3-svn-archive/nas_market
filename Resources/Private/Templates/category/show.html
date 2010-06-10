@@ -1,0 +1,28 @@
+<f:layout name="default" />
+
+This Template is responsible for creating a single view for a domain object
+
+<f:section name="main">
+<h1>Single View for category</h1>
+
+<f:flashMessages />
+
+<table>
+	<tr>
+		<td><f:translate key="tx_nasmarket_domain_model_category.title" /></td>
+		<td>{category.title}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_nasmarket_domain_model_category.description" /></td>
+		<td>{category.description}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_nasmarket_domain_model_category.image" /></td>
+		<td>{category.image}</td>
+	</tr>
+</table>
+<f:link.action action="edit" arguments="{category : category}">Edit</f:link.action>
+<f:link.action action="delete" arguments="{category : category}">Delete</f:link.action>
+
+<f:link.action action="index">Back to listing</f:link.action>
+</f:section>

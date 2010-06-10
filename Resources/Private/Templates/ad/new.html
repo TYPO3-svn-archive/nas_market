@@ -1,0 +1,27 @@
+<f:layout name="default" />
+
+This template displays a NEW form for the current domain object.
+
+<f:section name="main">
+<h1>New ad</h1>
+
+<f:flashMessages />
+
+<f:render partial="formErrors" />
+
+<f:form method="post" action="create" name="newad" object="{newad}">
+	<label for="title"><f:translate key="tx_nasmarket_domain_model_ad.title" /></label><br />
+	<f:form.textbox property="title" /><br />
+	<label for="title"><f:translate key="tx_nasmarket_domain_model_ad.description" /></label><br />
+	<f:form.textbox property="description" /><br />
+	<label for="title"><f:translate key="tx_nasmarket_domain_model_ad.images" /></label><br />
+	<f:form.textbox property="images" /><br />
+	<label for="title"><f:translate key="tx_nasmarket_domain_model_ad.price" /></label><br />
+	<f:form.textbox property="price" /><br />
+	<label for="title"><f:translate key="tx_nasmarket_domain_model_ad.duraction" /></label><br />
+	<f:form.textbox property="duraction" /><br />
+	<label for="title"><f:translate key="tx_nasmarket_domain_model_ad.active" /></label><br />
+	<f:form.textbox property="active" /><br />
+	<f:form.submit value="Create new" />
+</f:form>
+</f:section>

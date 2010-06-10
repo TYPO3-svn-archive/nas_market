@@ -1,0 +1,12 @@
+<f:layout name="default" />
+
+This Template is responsible for creating a table of domain objects.
+
+<f:section name="content">
+<h1>{market.title}</h1>
+<f:flashMessages />
+test:<br />
+<f:for each="{categories}" as="category">
+    {category.title}<br />
+</f:for>
+</f:section>
