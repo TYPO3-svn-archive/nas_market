@@ -55,7 +55,7 @@ class Tx_NasMarket_Controller_marketController extends Tx_Extbase_MVC_Controller
 	public function indexAction() {
 		$categories = $this->categoryRepository->findAll();
                 $market = array();
-                $market['title'] = 'Test-Übergabe';
+                $market['title'] = 'Das ist die Überschrift';
                 //$market['categories'] = $categories;
                 //t3lib_div::devLog('Flex Form Array pi1', 'market', 0, $this->settings);
                 $this->view->assign('market', $market);

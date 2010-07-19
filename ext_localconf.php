@@ -5,14 +5,10 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
 	'Pi1',
 	array(
-                'market' => 'index, menu',
-                'category' => 'index, show, new, create, edit, update, delete',
-		'ad' => 'index, show, new, create, edit, update, delete',
+		'Category' => 'index, show, new, create, edit, update, delete','Ad' => 'index, show, new, create, edit, update, delete',
 	),
 	array(
-                'market' => 'index, menu',
-		'category' => 'create, update, delete',
-                'ad' => 'index, show, new, create, edit, update, delete',
+		'Category' => 'create, update, delete','Ad' => 'create, update, delete',
 	)
 );
 

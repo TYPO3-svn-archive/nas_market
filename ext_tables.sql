@@ -77,8 +77,8 @@ CREATE TABLE tx_nasmarket_ad_category_mm (
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	
-	tstamp int(10) unsigned NOT NULL,
-	crdate int(10) unsigned NOT NULL,
+	tstamp int(10) unsigned DEFAULT '0' NOT NULL,
+	crdate int(10) unsigned DEFAULT '0' NOT NULL,
 	hidden tinyint(3) unsigned DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),

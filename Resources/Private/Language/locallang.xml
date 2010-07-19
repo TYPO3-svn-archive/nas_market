@@ -6,12 +6,6 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="ff.sheet_general">general</label>
-			<label index="ff.storage_pid">storage pid</label>
-			<label index="ff.actionSelection">action</label>
-			<label index="ff.actionContent">market</label>
-			<label index="ff.actionMenu">menu</label>
-			
 			<label index="tx_nasmarket_domain_model_category">classified Category</label>
 			<label index="tx_nasmarket_domain_model_category.title">title</label>
 			<label index="tx_nasmarket_domain_model_category.description">description</label>
