@@ -23,12 +23,12 @@
 ***************************************************************/
 
 /**
- * Repository for Tx_NasMarket_Domain_Model_ad
+ * Repository for Tx_NasMarket_Domain_Model_Category
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class Tx_NasMarket_Domain_Repository_adRepository extends Tx_Extbase_Persistence_Repository {
+class Tx_NasMarket_Domain_Repository_CategoryRepository extends Tx_Extbase_Persistence_Repository {
 }
 ?>

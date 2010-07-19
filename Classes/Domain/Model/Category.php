@@ -31,7 +31,7 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class Tx_NasMarket_Domain_Model_category extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Tx_NasMarket_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractValueObject {
 	
 	/**
 	 * title
@@ -54,7 +54,7 @@ class Tx_NasMarket_Domain_Model_category extends Tx_Extbase_DomainObject_Abstrac
 	
 	/**
 	 * parent
-	 * @var Tx_NasMarket_Domain_Model_category
+	 * @var Tx_NasMarket_Domain_Model_Category
 	 */
 	protected $parent;
 	
@@ -120,17 +120,17 @@ class Tx_NasMarket_Domain_Model_category extends Tx_Extbase_DomainObject_Abstrac
 	/**
 	 * Setter for parent
 	 *
-	 * @param Tx_NasMarket_Domain_Model_category $parent parent
+	 * @param Tx_NasMarket_Domain_Model_Category $parent parent
 	 * @return void
 	 */
-	public function setParent(Tx_NasMarket_Domain_Model_category $parent) {
+	public function setParent(Tx_NasMarket_Domain_Model_Category $parent) {
 		$this->parent = $parent;
 	}
 
 	/**
 	 * Getter for parent
 	 *
-	 * @return Tx_NasMarket_Domain_Model_category parent
+	 * @return Tx_NasMarket_Domain_Model_Category parent
 	 */
 	public function getParent() {
 		return $this->parent;

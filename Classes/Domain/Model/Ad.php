@@ -31,7 +31,7 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class Tx_NasMarket_Domain_Model_ad extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntity {
 	
 	/**
 	 * title
@@ -74,7 +74,7 @@ class Tx_NasMarket_Domain_Model_ad extends Tx_Extbase_DomainObject_AbstractEntit
 	
 	/**
 	 * categories
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_category>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_Category>
 	 */
 	protected $categories;
 	
@@ -206,7 +206,7 @@ class Tx_NasMarket_Domain_Model_ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for categories
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_category> $categories categories
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_Category> $categories categories
 	 * @return void
 	 */
 	public function setCategories(Tx_Extbase_Persistence_ObjectStorage $categories) {
@@ -216,7 +216,7 @@ class Tx_NasMarket_Domain_Model_ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Getter for categories
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_category> categories
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_Category> categories
 	 */
 	public function getCategories() {
 		return $this->categories;
@@ -225,20 +225,20 @@ class Tx_NasMarket_Domain_Model_ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Adds a Category
 	 *
-	 * @param Tx_NasMarket_Domain_Model_category The Category to be added
+	 * @param Tx_NasMarket_Domain_Model_Category The Category to be added
 	 * @return void
 	 */
-	public function addCategory(Tx_NasMarket_Domain_Model_category $category) {
+	public function addCategory(Tx_NasMarket_Domain_Model_Category $category) {
 		$this->categories->attach($category);
 	}
 	
 	/**
 	 * Removes a Category
 	 *
-	 * @param Tx_NasMarket_Domain_Model_category The Category to be removed
+	 * @param Tx_NasMarket_Domain_Model_Category The Category to be removed
 	 * @return void
 	 */
-	public function removeCategory(Tx_NasMarket_Domain_Model_category $category) {
+	public function removeCategory(Tx_NasMarket_Domain_Model_Category $category) {
 		$this->categories->detach($category);
 	}
 	
