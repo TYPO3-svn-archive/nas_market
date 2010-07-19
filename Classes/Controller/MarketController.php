@@ -33,7 +33,7 @@
  */
 
 // TODO: As your extension matures, you should use Tx_Extbase_MVC_Controller_ActionController as base class, instead of the ScaffoldingController used below.
-class Tx_NasMarket_Controller_marketController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_NasMarket_Controller_MarketController extends Tx_Extbase_MVC_Controller_ActionController {
 	
 	/**
 	 * @var Tx_NasMarket_Domain_Repository_categoryRepository
@@ -46,7 +46,7 @@ class Tx_NasMarket_Controller_marketController extends Tx_Extbase_MVC_Controller
 	 * @return void
 	 */
 	protected function initializeAction() {
-		$this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_categoryRepository');
+		$this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
 	}
         
 	/**
