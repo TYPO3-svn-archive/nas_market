@@ -9,6 +9,22 @@
 			<label index="tx_nasmarket_domain_model_category">Market Category</label>
 			<label index="tx_nasmarket_domain_model_category.title">title</label>
 			<label index="tx_nasmarket_domain_model_category.parent">parent category</label>
+			<label index="tx_nasmarket_domain_model_ad">Market-Ad</label>
+			<label index="tx_nasmarket_domain_model_ad.title">title</label>
+			<label index="tx_nasmarket_domain_model_ad.description">description</label>
+			<label index="tx_nasmarket_domain_model_ad.type1">offer or search</label>
+			<label index="tx_nasmarket_domain_model_ad.type2">private or commercial</label>
+			<label index="tx_nasmarket_domain_model_ad.images">images</label>
+			<label index="tx_nasmarket_domain_model_ad.different_location">different location than own address</label>
+			<label index="tx_nasmarket_domain_model_ad.dl_zip">different location ZIP</label>
+			<label index="tx_nasmarket_domain_model_ad.dl_city">different location city</label>
+			<label index="tx_nasmarket_domain_model_ad.dl_address">different location address</label>
+			<label index="tx_nasmarket_domain_model_ad.dl_country">different location country</label>
+			<label index="tx_nasmarket_domain_model_ad.show_phone">show phone nr in ad</label>
+			<label index="tx_nasmarket_domain_model_ad.show_email">show email addr in ad</label>
+			<label index="tx_nasmarket_domain_model_ad.duration">duration in days</label>
+			<label index="tx_nasmarket_domain_model_ad.price">price</label>
+			<label index="tx_nasmarket_domain_model_ad.category">category</label>
 		</languageKey>
 	</data>
 </T3locallang>

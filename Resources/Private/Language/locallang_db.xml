@@ -9,6 +9,22 @@
 			<label index="tx_nasmarket_domain_model_category">Category</label>
 			<label index="tx_nasmarket_domain_model_category.title">Title</label>
 			<label index="tx_nasmarket_domain_model_category.parent">Parent</label>
+			<label index="tx_nasmarket_domain_model_ad">Ad</label>
+			<label index="tx_nasmarket_domain_model_ad.title">Title</label>
+			<label index="tx_nasmarket_domain_model_ad.description">Description</label>
+			<label index="tx_nasmarket_domain_model_ad.type1">Type1</label>
+			<label index="tx_nasmarket_domain_model_ad.type2">Type2</label>
+			<label index="tx_nasmarket_domain_model_ad.images">Images</label>
+			<label index="tx_nasmarket_domain_model_ad.different_location">Different Location</label>
+			<label index="tx_nasmarket_domain_model_ad.dl_zip">Dl Zip</label>
+			<label index="tx_nasmarket_domain_model_ad.dl_city">Dl City</label>
+			<label index="tx_nasmarket_domain_model_ad.dl_address">Dl Address</label>
+			<label index="tx_nasmarket_domain_model_ad.dl_country">Dl Country</label>
+			<label index="tx_nasmarket_domain_model_ad.show_phone">Show Phone</label>
+			<label index="tx_nasmarket_domain_model_ad.show_email">Show Email</label>
+			<label index="tx_nasmarket_domain_model_ad.duration">Duration</label>
+			<label index="tx_nasmarket_domain_model_ad.price">Price</label>
+			<label index="tx_nasmarket_domain_model_ad.category">Category</label>
 		</languageKey>
 	</data>
 </T3locallang>
