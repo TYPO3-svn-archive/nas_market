@@ -5,6 +5,7 @@ CREATE TABLE tx_nasmarket_domain_model_category (
 	
 	title tinytext,
 	parent int(11) DEFAULT '0' NOT NULL,
+	image tinytext,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -49,6 +50,7 @@ CREATE TABLE tx_nasmarket_domain_model_ad (
 	duration tinytext,
 	price double(11,2) DEFAULT '0.00' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
+	feuser int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -89,4 +91,10 @@ CREATE TABLE tx_nasmarket_ad_category_mm (
 
 	PRIMARY KEY (uid),
 	KEY parent (pid)
+);
+
+CREATE TABLE fe_users (
+	agb_accepted tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	show_email tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	show_phone tinyint(1) unsigned DEFAULT '0' NOT NULL,
 );

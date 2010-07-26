@@ -22,6 +22,7 @@
 			<label index="duration.description">duration in days</label>
 			<label index="price.description">price</label>
 			<label index="category.description">category</label>
+			<label index="feuser.description">feuser</label>
 		</languageKey>
     </data>
 </T3locallang>

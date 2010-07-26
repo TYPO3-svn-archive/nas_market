@@ -124,6 +124,12 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $category;
 	
+	/**
+	 * feuser
+	 * @var Tx_NasMarket_Domain_Model_FeUser
+	 */
+	protected $feuser;
+	
 	
 	
 	/**
@@ -447,6 +453,25 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	public function removeCategory(Tx_NasMarket_Domain_Model_Category $category) {
 		$this->category->detach($category);
+	}
+	
+	/**
+	 * Setter for feuser
+	 *
+	 * @param Tx_NasMarket_Domain_Model_FeUser $feuser feuser
+	 * @return void
+	 */
+	public function setFeuser(Tx_NasMarket_Domain_Model_FeUser $feuser) {
+		$this->feuser = $feuser;
+	}
+
+	/**
+	 * Getter for feuser
+	 *
+	 * @return Tx_NasMarket_Domain_Model_FeUser feuser
+	 */
+	public function getFeuser() {
+		return $this->feuser;
 	}
 	
 }

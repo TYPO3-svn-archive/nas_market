@@ -46,6 +46,12 @@ class Tx_NasMarket_Domain_Model_Category extends Tx_Extbase_DomainObject_Abstrac
 	 */
 	protected $parent;
 	
+	/**
+	 * category image
+	 * @var string
+	 */
+	protected $image;
+	
 	
 	
 	/**
@@ -84,6 +90,25 @@ class Tx_NasMarket_Domain_Model_Category extends Tx_Extbase_DomainObject_Abstrac
 	 */
 	public function getParent() {
 		return $this->parent;
+	}
+	
+	/**
+	 * Setter for image
+	 *
+	 * @param string $image category image
+	 * @return void
+	 */
+	public function setImage($image) {
+		$this->image = $image;
+	}
+
+	/**
+	 * Getter for image
+	 *
+	 * @return string category image
+	 */
+	public function getImage() {
+		return $this->image;
 	}
 	
 }

@@ -9,6 +9,7 @@
 			<label index="tx_nasmarket_domain_model_category">Category</label>
 			<label index="tx_nasmarket_domain_model_category.title">Title</label>
 			<label index="tx_nasmarket_domain_model_category.parent">Parent</label>
+			<label index="tx_nasmarket_domain_model_category.image">Image</label>
 			<label index="tx_nasmarket_domain_model_ad">Ad</label>
 			<label index="tx_nasmarket_domain_model_ad.title">Title</label>
 			<label index="tx_nasmarket_domain_model_ad.description">Description</label>
@@ -25,6 +26,11 @@
 			<label index="tx_nasmarket_domain_model_ad.duration">Duration</label>
 			<label index="tx_nasmarket_domain_model_ad.price">Price</label>
 			<label index="tx_nasmarket_domain_model_ad.category">Category</label>
+			<label index="tx_nasmarket_domain_model_ad.feuser">Feuser</label>
+			<label index="tx_nasmarket_domain_model_feuser">Fe User</label>
+			<label index="tx_nasmarket_domain_model_feuser.agb_accepted">Agb Accepted</label>
+			<label index="tx_nasmarket_domain_model_feuser.show_email">Show Email</label>
+			<label index="tx_nasmarket_domain_model_feuser.show_phone">Show Phone</label>
 		</languageKey>
 	</data>
 </T3locallang>

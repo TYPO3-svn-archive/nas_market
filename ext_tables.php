@@ -59,4 +59,35 @@ $TCA['tx_nasmarket_domain_model_ad'] = array (
 	)
 );
 
+$tempColumns = Array (
+		'agb_accepted' => array(
+			'exclude' => 0,
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_feuser.agb_accepted',
+			'config'  => array(
+				'type' => 'check',
+				'default' => 0
+			)
+		),
+		'show_email' => array(
+			'exclude' => 0,
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_feuser.show_email',
+			'config'  => array(
+				'type' => 'check',
+				'default' => 0
+			)
+		),
+		'show_phone' => array(
+			'exclude' => 0,
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_feuser.show_phone',
+			'config'  => array(
+				'type' => 'check',
+				'default' => 0
+			)
+		)
+	);
+
+t3lib_div::loadTCA("fe_users");
+t3lib_extMgm::addTCAcolumns("fe_users",$tempColumns,1);
+t3lib_extMgm::addToAllTCAtypes("fe_users","--div--;Market,agb_accepted,show_email,show_phone");
+
 ?>
