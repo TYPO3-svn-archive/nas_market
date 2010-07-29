@@ -1,0 +1,28 @@
+<f:layout name="default" />
+
+This Template is for showing the market
+
+<f:section name="header">
+<div class="search">
+    Suche
+</div>
+<f:flashMessages />    
+</f:section>
+
+<f:section name="left">
+    Links 
+</f:section>
+
+<f:section name="main">
+<div class="content">
+    Content<br />
+    <f:if condition="{categories}">
+	<f:then>
+	    <f:for each="{categories}" as="cat">
+		    {cat.title}<br />
+	    </f:for>
+	</f:then>
+	<f:else>Keine Kategorien</f:else>
+    </f:if>
+</div>
+</f:section>
