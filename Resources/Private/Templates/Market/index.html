@@ -4,7 +4,26 @@ This Template is for showing the market
 
 <f:section name="header">
 <div class="search">
-    Suche
+    <div class="titletext">Suchen</div>
+    <div class="newbutton">
+        <a href="#">Neue Anzeige</a>
+    </div>
+    <div class="searchline">
+        <div class="swords">
+            <label for="swords">Was?</label><input type="text" name="swords" />
+        </div>
+        <div class="swhere">
+            <label for="swhere">Wo?</label><input type="text" name="swhere" />
+        </div>
+        <div class="scat">
+            <label for="scat">Kategorie?</label>
+            <select name="scat">
+                <option value="0">Dummy 1</option>
+                <option value="1">Dummy 2</option>
+            </select>
+        </div>
+    </div>
+    <a class="button" href="#">Finden</a>
 </div>
 <f:flashMessages />    
 </f:section>
