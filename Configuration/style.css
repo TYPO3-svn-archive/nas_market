@@ -17,6 +17,71 @@
     margin-bottom: 5px;
 }
 
+.tx-nasmarket-pi1 .header .search {
+    position: relative;
+    height: 52px;
+}
+
+.tx-nasmarket-pi1 .header .search .newbutton {
+    background-color: #ddd;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    line-height: 1.5;
+    
+    position: absolute;
+    right: 10px;
+    top: 1px;
+}
+
+.tx-nasmarket-pi1 .header .search .titletext {
+    border: 1px solid #ddd;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    line-height: 1.5;
+    
+    position: absolute;
+    left: 10px;
+    top: 1px;
+}
+
+.tx-nasmarket-pi1 .header .search .searchline {
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 25px;
+    
+    height: 25px;
+    width: 100%;
+    
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+}
+
+.tx-nasmarket-pi1 .header .search .searchline div {
+    display: block;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.tx-nasmarket-pi1 .header .search .searchline label {
+    margin-right: 5px;
+}
+
+.tx-nasmarket-pi1 .header .search .searchline .button {
+    background-color: #ddd;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    line-height: 1.5;
+    
+    display: block;
+    float: right;
+    margin-right: 14px;
+}
+
 /*************************************************/
 /* left                                          */
 .tx-nasmarket-pi1 .left {
@@ -24,7 +89,7 @@
     display: block;
     float: left;
     width: 150px;
-    height: 70%;
+    height: 300px;
     padding: 5px;
 }
 

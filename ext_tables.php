@@ -7,8 +7,6 @@ Tx_Extbase_Utility_Extension::registerPlugin(
 	'Marketplace'
 );
 
-t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Marketplace');
-
 $extensionName = t3lib_div::underscoredToUpperCamelCase($_EXTKEY);
 $pluginSignature = strtolower($extensionName) . '_pi1';
 

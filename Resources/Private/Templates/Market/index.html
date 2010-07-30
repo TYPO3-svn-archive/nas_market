@@ -18,12 +18,14 @@ This Template is for showing the market
         <div class="scat">
             <label for="scat">Kategorie?</label>
             <select name="scat">
-                <option value="0">Dummy 1</option>
-                <option value="1">Dummy 2</option>
+                <option value="0">Alle</option>
+                <f:for each="{categories}" as="cat">
+                    <option value="{cat.uid}">{cat.title}</option>
+                </f:for>
             </select>
         </div>
+        <a class="button" href="#">Finden</a>
     </div>
-    <a class="button" href="#">Finden</a>
 </div>
 <f:flashMessages />    
 </f:section>
