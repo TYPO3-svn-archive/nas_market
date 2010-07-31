@@ -31,19 +31,21 @@ This Template is for showing the market
 </f:section>
 
 <f:section name="left">
-    Links 
+    <f:render partial="categories" arguments="{categories:categories}" />
 </f:section>
 
 <f:section name="main">
-<div class="content">
-    Content<br />
-    <f:if condition="{categories}">
-	<f:then>
-	    <f:for each="{categories}" as="cat">
-		    {cat.title}<br />
-	    </f:for>
-	</f:then>
-	<f:else>Keine Kategorien</f:else>
-    </f:if>
-</div>
+    <div class="title">Aktuelle Kleinanzeigen</div>
+    <div class="ads">
+        <f:if condition="{ads}">
+            <f:then>
+                <f:for each="{ads}" as="ad">
+                    <f:render partial="adPreview" arguments="{ad:ad}" />
+                </f:for>
+            </f:then>
+            <f:else>
+                Keine Anzeigen vorhanden
+            </f:else>
+        </f:if>
+    </div>
 </f:section>

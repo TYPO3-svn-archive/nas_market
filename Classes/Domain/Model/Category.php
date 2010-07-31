@@ -47,6 +47,12 @@ class Tx_NasMarket_Domain_Model_Category extends Tx_Extbase_DomainObject_Abstrac
 	protected $parent;
 	
 	/**
+	 * children categories
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_Category>
+	 */
+	protected $children;
+	
+	/**
 	 * category image
 	 * @var string
 	 */
@@ -76,7 +82,7 @@ class Tx_NasMarket_Domain_Model_Category extends Tx_Extbase_DomainObject_Abstrac
 	/**
 	 * Setter for parent
 	 *
-	 * @param integer $parent parent category
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_Category> $parent parent category
 	 * @return void
 	 */
 	public function setParent($parent) {
@@ -86,10 +92,49 @@ class Tx_NasMarket_Domain_Model_Category extends Tx_Extbase_DomainObject_Abstrac
 	/**
 	 * Getter for parent
 	 *
-	 * @return integer parent category
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_Category> parent category
 	 */
 	public function getParent() {
 		return $this->parent;
+	}
+	
+	/**
+	 * Setter for children
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_Category> $children children
+	 * @return void
+	 */
+	public function setChildren(Tx_Extbase_Persistence_ObjectStorage $children) {
+		$this->children = $children;
+	}
+
+	/**
+	 * Getter for children
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_children> children
+	 */
+	public function getChildren() {
+		return $this->children;
+	}
+	
+	/**
+	 * Adds a Child
+	 *
+	 * @param Tx_NasMarket_Domain_Model_Category The Category to be category
+	 * @return void
+	 */
+	public function addChild(Tx_NasMarket_Domain_Model_Category $category) {
+		$this->children->attach($category);
+	}
+	
+	/**
+	 * Removes a Child
+	 *
+	 * @param Tx_NasMarket_Domain_Model_Category The Category to be removed
+	 * @return void
+	 */
+	public function removeChild(Tx_NasMarket_Domain_Model_Category $category) {
+		$this->children->detach($category);
 	}
 	
 	/**

@@ -4,10 +4,10 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 $TCA['tx_nasmarket_domain_model_category'] = array(
 	'ctrl' => $TCA['tx_nasmarket_domain_model_category']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'title,parent,image'
+		'showRecordFieldList' => 'title,image,parent,children'
 	),
 	'types' => array(
-		'1' => array('showitem' => 'title,parent,image')
+		'1' => array('showitem' => 'title,parent,image,children')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')
@@ -67,22 +67,62 @@ $TCA['tx_nasmarket_domain_model_category'] = array(
 				'eval' => 'trim,required'
 			)
 		),
+                'image' => array(
+			'exclude' => 0,
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_category.image',
+			'config'  => array(
+				'type' => 'group',
+                                'internal_type' => 'file',
+                                'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'max_size' => 1000,
+				'uploadfolder' => 'uploads/pics',
+                                'show_thumbs' => 1,
+                                'size' => 1,
+                                'maxitems' => 1,
+                                'minitems' => 0
+			)
+		),
 		'parent' => array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_category.parent',
 			'config'  => array(
-				'type' => 'input',
-				'size' => 4,
-				'eval' => 'int'
+				'type' => 'group',
+                                'internal_type' => 'db',
+                                'allowed' => 'tx_nasmarket_domain_model_category',
+				'size' => 1,
+                                'maxitems' => 1,
+                                'minitems' => 0
 			)
 		),
-		'image' => array(
+                'children' => array(
 			'exclude' => 0,
-			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_category.image',
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_category.children',
 			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'type' => 'inline',
+				'foreign_table' => 'tx_nasmarket_domain_model_category',
+				'foreign_field' => 'parent',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapse' => 0,
+					'newRecordLinkPosition' => 'bottom',
+				),
+			)
+		),
+                'ads' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_category.ads',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_nasmarket_domain_model_ad',
+				'MM' => 'tx_nasmarket_ad_category_mm',
+				'maxitems' => 9999,
+				'appearance' => array(
+					'useCombination' => 1,
+					'useSortable' => 1,
+					'newRecordLinkPosition' => 'bottom',
+					'collapseAll' => 1,
+					'expandSingle' => 1,
+				)
 			)
 		),
 	),

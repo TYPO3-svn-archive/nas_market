@@ -90,18 +90,37 @@
     float: left;
     width: 150px;
     height: 300px;
-    padding: 5px;
 }
 
-/* Search-Bar */
-.tx-nasmarket-pi1 .left .search {
+/* Category-Box */
+.tx-nasmarket-pi1 .left .categories_box {
     
+}
+
+.tx-nasmarket-pi1 .left .categories_box ul {
+    margin: 0;
+    list-style: none;
+    padding-left: 5px;
+}
+
+.tx-nasmarket-pi1 .left .categories_box ul.subcat {
+    margin: 0;
+    list-style: circle;
+    list-style-position: inside;
 }
 
 /*************************************************/
 /* main                                          */
 .tx-nasmarket-pi1 .main {
     margin-left: 170px;
+}
+
+.tx-nasmarket-pi1 .main .ads div {
+    border: 1px solid black;
+    display: block;
+    width: 220px;
+    float: left;
+    margin-right: 10px;
 }
 
 /*************************************************/

@@ -24,6 +24,7 @@ $TCA['tx_nasmarket_domain_model_category'] = array (
 		'label' 			=> 'title',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
+                'sortby'                        => 'sorting',
 		'versioningWS' 		=> 2,
 		'versioning_followPages'	=> TRUE,
 		'origUid' 			=> 't3_origuid',

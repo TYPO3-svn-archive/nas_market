@@ -71,36 +71,53 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.description',
 			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'type' => 'text',
+				'rows' => 30,
+				'cols' => 80
 			)
 		),
 		'type1' => array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.type1',
 			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'type' => 'select',
+                                'items' => array(
+                                    array('LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.type1.0',0),
+                                    array('LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.type1.1',1),
+                                ),
+				'size' => 1,
+                                'maxitems' => 1,
+                                'default' => 0
 			)
 		),
 		'type2' => array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.type2',
 			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'type' => 'select',
+                                'items' => array(
+                                    array('LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.type2.0',0),
+                                    array('LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.type2.1',1),
+                                ),
+				'size' => 1,
+                                'maxitems' => 1,
+                                'default' => 0
 			)
 		),
 		'images' => array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.images',
 			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'type' => 'group',
+                                'internal_type' => 'file',
+                                'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'max_size' => 1000,
+				'uploadfolder' => 'uploads/pics',
+                                'show_thumbs' => 1,
+                                'size' => 4,
+                                'maxitems' => 4,
+                                'minitems' => 0,
+                                'autoSizeMax' => 10
 			)
 		),
 		'different_location' => array(
@@ -112,6 +129,7 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			)
 		),
 		'dl_zip' => array(
+                        'displayCond' => 'FIELD:different_location:=:1',
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.dl_zip',
 			'config'  => array(
@@ -121,6 +139,7 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			)
 		),
 		'dl_city' => array(
+                        'displayCond' => 'FIELD:different_location:=:1',
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.dl_city',
 			'config'  => array(
@@ -130,6 +149,7 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			)
 		),
 		'dl_address' => array(
+                        'displayCond' => 'FIELD:different_location:=:1',
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.dl_address',
 			'config'  => array(
@@ -139,6 +159,7 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			)
 		),
 		'dl_country' => array(
+                        'displayCond' => 'FIELD:different_location:=:1',
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.dl_country',
 			'config'  => array(
@@ -159,9 +180,8 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.show_email',
 			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'type' => 'check',
+				'default' => 0
 			)
 		),
 		'duration' => array(
@@ -169,8 +189,8 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.duration',
 			'config'  => array(
 				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'size' => 7,
+				'eval' => 'int'
 			)
 		),
 		'price' => array(
@@ -178,7 +198,7 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.price',
 			'config'  => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 7,
 				'eval' => 'double2'
 			)
 		),
@@ -186,9 +206,15 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.category',
 			'config'  => array(
-				'type' => 'inline',
+				'type' => 'select',
+				'size' => 10,
+				'minitems' => 0,
+				'maxitems' => 9999,
+				'autoSizeMax' => 30,
+				'multiple' => 0,
 				'foreign_table' => 'tx_nasmarket_domain_model_category',
 				'MM' => 'tx_nasmarket_ad_category_mm',
+                                'MM_opposite_field' => 'ads',
 				'maxitems' => 99999
 			)
 		),
@@ -196,14 +222,12 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.feuser',
 			'config'  => array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_nasmarket_domain_model_feuser',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'appearance' => array(
-					'collapse' => 0,
-					'newRecordLinkPosition' => 'bottom',
-				),
+				'type' => 'group',
+                                'internal_type' => 'db',
+                                'allowed' => 'fe_users',
+				'size' => 1,
+                                'maxitems' => 1,
+                                'minitems' => 0
 			)
 		),
 	),

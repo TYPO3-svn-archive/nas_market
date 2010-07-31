@@ -30,5 +30,23 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Tx_NasMarket_Domain_Repository_CategoryRepository extends Tx_Extbase_Persistence_Repository {
+    
+    /**
+    * Finds all category by a prent
+    *
+    * @param Tx_NasMarket_Domain_Model_Category $parent The Parent Category for the tree
+    * @return array The categories
+    */
+    public function findAllByParent(Tx_NasMarket_Domain_Model_Category $parent = NULL){
+        $query = $this->createQuery();
+        if ($parent == NULL) $query->matching($query->equals('parent', 0));
+        else {
+            $query->matching($query->equals('parent', $parent));
+        }
+        
+        $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
+        #t3lib_div::debug($query);
+	return $query->execute();
+    }
 }
 ?>
