@@ -28,6 +28,7 @@
 			<label index="tx_nasmarket_domain_model_ad.dl_country">Dl Country</label>
 			<label index="tx_nasmarket_domain_model_ad.show_phone">Show Phone</label>
 			<label index="tx_nasmarket_domain_model_ad.show_email">Show Email</label>
+			<label index="tx_nasmarket_domain_model_ad.start_date">Start date</label>
 			<label index="tx_nasmarket_domain_model_ad.duration">Duration in days</label>
 			<label index="tx_nasmarket_domain_model_ad.price">Price</label>
 			<label index="tx_nasmarket_domain_model_ad.category">Category</label>

@@ -1,4 +1,23 @@
-<div class="ad_preview_<f:if condition="{ad.type1} == 0"><f:then>offer</f:then><f:else>request</f:else></f:if>">
-    <f:image src="uploads/pics/{ad.images}" alt="edit" />
-    {ad.title}
+{namespace nasm=Tx_NasMarket_ViewHelpers}
+<div class="ad_preview_{f:if(condition:'{ad.type1} == 0', then:'offer',else:'request')}">
+    <div class="preview_image">
+        <f:if condition="{ad.images.0}">
+            <f:image src="uploads/pics/{ad.images.0}" alt="edit" maxHeight="110px" maxWidth="110px" />
+        </f:if>
+    </div>
+    <div class="preview_title">
+        {ad.title}
+    </div>
+    <div class="preview_end">
+        <nasm:format.adEnd ad="{ad}" />
+    </div>
+    <div class="preview_price">
+        <f:format.currency currencySign="€">{ad.price}</f:format.currency>
+    </div>
+    <div class="preview_place">
+        Standort
+    </div>
+    <div class="preview_cat">
+        <nasm:format.firstCat cats="{ad.category}" />                
+    </div>
 </div>

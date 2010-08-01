@@ -4,10 +4,10 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 $TCA['tx_nasmarket_domain_model_ad'] = array(
 	'ctrl' => $TCA['tx_nasmarket_domain_model_ad']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,duration,price,category,feuser'
+		'showRecordFieldList' => 'starttime,duration,endtime,title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,price,category,feuser'
 	),
 	'types' => array(
-		'1' => array('showitem' => 'title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,duration,price,category,feuser')
+		'1' => array('showitem' => 'starttime,duration,endtime,title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,price,category,feuser')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')
@@ -49,6 +49,30 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'config' => array(
 				'type'=>'none',
 				'cols' => 27
+			)
+		),
+                'starttime' => array (
+			'exclude' => 1,
+			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.starttime',
+			'config'  => array (
+				'type'     => 'input',
+				'size'     => '8',
+				'max'      => '20',
+				'eval'     => 'date',
+				'default'  => '0',
+				'checkbox' => '0'
+			)
+		),
+                'endtime' => array (
+			'exclude' => 1,
+			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.endtime',
+			'config'  => array (
+				'type'     => 'input',
+				'size'     => '8',
+				'max'      => '20',
+				'eval'     => 'date',
+				'default'  => '0',
+				'checkbox' => '0'
 			)
 		),
 		'hidden' => array(

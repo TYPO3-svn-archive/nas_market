@@ -56,7 +56,9 @@ $TCA['tx_nasmarket_domain_model_ad'] = array (
 		'transOrigDiffSourceField' 	=> 'l18n_diffsource',
 		'delete' 			=> 'deleted',
 		'enablecolumns' 	=> array(
-			'disabled' => 'hidden'
+			'disabled' => 'hidden',
+                        'starttime' => 'starttime',
+                        'endtime' => 'endtime'
 			),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Ad.php',
 		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nasmarket_domain_model_ad.gif'

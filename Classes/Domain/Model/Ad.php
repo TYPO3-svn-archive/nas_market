@@ -34,6 +34,18 @@
 class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntity {
 	
 	/**
+	 * starttime
+	 * @var int
+	 */
+	protected $starttime;
+	
+	/**
+	 * endtime
+	 * @var int
+	 */
+	protected $endtime;
+	
+	/**
 	 * title
 	 * @var string
 	 * @validate NotEmpty
@@ -102,13 +114,13 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	
 	/**
 	 * show email addr in ad
-	 * @var string
+	 * @var boolean
 	 */
 	protected $show_email;
 	
 	/**
 	 * duration in days
-	 * @var string
+	 * @var int
 	 */
 	protected $duration;
 	
@@ -130,7 +142,43 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $feuser;
 	
+	/**
+	 * Setter for starttime
+	 *
+	 * @param int $starttime starttime
+	 * @return void
+	 */
+	public function setStarttime($starttime) {
+		$this->starttime = $starttime;
+	}
+
+	/**
+	 * Getter for starttime
+	 *
+	 * @return int starttime
+	 */
+	public function getStarttime() {
+		return $this->starttime;
+	}
 	
+	/**
+	 * Setter for endtime
+	 *
+	 * @param int $endtime endtime
+	 * @return void
+	 */
+	public function setEndtime($endtime) {
+		$this->endtime = $endtime;
+	}
+
+	/**
+	 * Getter for endtime
+	 *
+	 * @return int endtime
+	 */
+	public function getEndtime() {
+		return $this->endtime;
+	}
 	
 	/**
 	 * Setter for title
@@ -211,20 +259,20 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for images
 	 *
-	 * @param string $images images
+	 * @param array $images images
 	 * @return void
 	 */
 	public function setImages($images) {
-		$this->images = $images;
+		$this->images = implode(',',$images);
 	}
 
 	/**
 	 * Getter for images
 	 *
-	 * @return string images
+	 * @return array images
 	 */
 	public function getImages() {
-		return $this->images;
+		return explode(',',$this->images);
 	}
 	
 	/**
@@ -344,7 +392,7 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Getter for show_phone
 	 *
-	 * @return boolean show phone nr in ad
+	 * @return bool show phone nr in ad
 	 */
 	public function getShow_phone() {
 		return $this->show_phone;
@@ -362,7 +410,7 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for show_email
 	 *
-	 * @param string $show_email show email addr in ad
+	 * @param boolean $show_email show email addr in ad
 	 * @return void
 	 */
 	public function setShow_email($show_email) {
@@ -372,26 +420,38 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Getter for show_email
 	 *
-	 * @return string show email addr in ad
+	 * @return bool show email addr in ad
 	 */
 	public function getShow_email() {
 		return $this->show_email;
 	}
 	
 	/**
+	 * Returns the boolean state of show_email
+	 *
+	 * @return bool The state of show_email
+	 */
+	public function isShow_email() {
+		$this->getShow_email();
+	}
+	
+	/**
 	 * Setter for duration
 	 *
-	 * @param string $duration duration in days
+	 * @param int $duration duration in days
 	 * @return void
 	 */
 	public function setDuration($duration) {
+		$starttime = $this->getStarttime();
+		$temp_time = mktime(0,0,0,date('m',$starttime),date('d',$starttime)+$duration,date('Y',$starttime));
 		$this->duration = $duration;
+		$this->setEndtime($temp_time);
 	}
 
 	/**
 	 * Getter for duration
 	 *
-	 * @return string duration in days
+	 * @return int duration in days
 	 */
 	public function getDuration() {
 		return $this->duration;

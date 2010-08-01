@@ -60,7 +60,6 @@ class Tx_NasMarket_Controller_MarketController extends Tx_Extbase_MVC_Controller
 	public function indexAction() {
 		$categories = $this->categoryRepository->findAllByParent();
                 $ads = $this->adRepository->findAll();
-		//t3lib_div::debug($categories);
 		$this->view->assign('categories', $categories);
                 $this->view->assign('ads', $ads);
         }	
