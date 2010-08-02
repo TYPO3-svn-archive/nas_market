@@ -39,9 +39,9 @@ class Tx_NasMarket_Domain_Repository_CategoryRepository extends Tx_Extbase_Persi
     */
     public function findAllByParent(Tx_NasMarket_Domain_Model_Category $parent = NULL){
         $query = $this->createQuery();
-        if ($parent == NULL) $query->matching($query->equals('parent', 0));
+        if ($parent == NULL) $query->matching($query->equals('parentcat', 0));
         else {
-            $query->matching($query->equals('parent', $parent));
+            $query->matching($query->equals('parentcat', $parent));
         }
         
         $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));

@@ -15,7 +15,10 @@
         <f:format.currency currencySign="€">{ad.price}</f:format.currency>
     </div>
     <div class="preview_place">
-        Standort
+        <nasm:format.adPlace ad="{ad}" />
+    </div>
+    <div class="preview_price_type">
+        <f:translate key="tx_nasmarket_domain_model_ad.pricetype.{ad.pricetype}" />
     </div>
     <div class="preview_cat">
         <nasm:format.firstCat cats="{ad.category}" />                

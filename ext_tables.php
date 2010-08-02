@@ -68,7 +68,7 @@ $TCA['tx_nasmarket_domain_model_ad'] = array (
 $tempColumns = Array (
 		'agb_accepted' => array(
 			'exclude' => 0,
-			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_feuser.agb_accepted',
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_poster.agb_accepted',
 			'config'  => array(
 				'type' => 'check',
 				'default' => 0
@@ -76,7 +76,7 @@ $tempColumns = Array (
 		),
 		'show_email' => array(
 			'exclude' => 0,
-			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_feuser.show_email',
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_poster.show_email',
 			'config'  => array(
 				'type' => 'check',
 				'default' => 0
@@ -84,7 +84,7 @@ $tempColumns = Array (
 		),
 		'show_phone' => array(
 			'exclude' => 0,
-			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_feuser.show_phone',
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_poster.show_phone',
 			'config'  => array(
 				'type' => 'check',
 				'default' => 0
@@ -93,6 +93,8 @@ $tempColumns = Array (
 	);
 
 t3lib_div::loadTCA("fe_users");
+$TCA['fe_users']['types']['Tx_NasMarket_Domain_Model_Poster'] = $TCA['fe_users']['types']['0'];
+array_push($TCA['fe_users']['columns']['tx_extbase_type']['config']['items'], array('LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:fe_users.tx_extbase_type.Tx_NasMarket_Domain_Model_Poster', 'Tx_NasMarket_Domain_Model_Poster'));
 t3lib_extMgm::addTCAcolumns("fe_users",$tempColumns,1);
 t3lib_extMgm::addToAllTCAtypes("fe_users","--div--;Market,agb_accepted,show_email,show_phone");
 

@@ -36,7 +36,7 @@ class Tx_NasMarket_ViewHelpers_Format_FirstCatViewHelper extends Tx_Fluid_Core_V
 	public function render($cats) {
 		$output = '';
 		foreach ($cats as $cat){
-			$parent = $cat->getParent();
+			$parent = $cat->getParentcat();
 			if ($parent){
 				$output .= $parent->getTitle();
 				$output .= ' => ';

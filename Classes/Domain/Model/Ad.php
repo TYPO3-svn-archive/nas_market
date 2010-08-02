@@ -60,13 +60,13 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	
 	/**
 	 * offer or search
-	 * @var string
+	 * @var int
 	 */
 	protected $type1;
 	
 	/**
 	 * private or commercial
-	 * @var string
+	 * @var int
 	 */
 	protected $type2;
 	
@@ -80,43 +80,43 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 * different location than own address
 	 * @var boolean
 	 */
-	protected $different_location;
+	protected $differentLocation;
 	
 	/**
 	 * different location ZIP
 	 * @var string
 	 */
-	protected $dl_zip;
+	protected $dlZip;
 	
 	/**
 	 * different location city
 	 * @var string
 	 */
-	protected $dl_city;
+	protected $dlCity;
 	
 	/**
 	 * different location address
 	 * @var string
 	 */
-	protected $dl_address;
+	protected $dlAddress;
 	
 	/**
 	 * different location country
 	 * @var string
 	 */
-	protected $dl_country;
+	protected $dlCountry;
 	
 	/**
 	 * show phone nr in ad
 	 * @var boolean
 	 */
-	protected $show_phone;
+	protected $showPhone;
 	
 	/**
 	 * show email addr in ad
 	 * @var boolean
 	 */
-	protected $show_email;
+	protected $showEmail;
 	
 	/**
 	 * duration in days
@@ -131,16 +131,23 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $price;
 	
 	/**
+	 * pricetype
+	 * @var int
+	 */
+	protected $pricetype;
+	
+	/**
 	 * category
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_Category>
 	 */
 	protected $category;
 	
 	/**
-	 * feuser
-	 * @var Tx_NasMarket_Domain_Model_FeUser
+	 * The Ads Poster
+	 *
+	 * @var Tx_NasMarket_Domain_Model_Poster
 	 */
-	protected $feuser;
+	protected $poster;
 	
 	/**
 	 * Setter for starttime
@@ -221,7 +228,7 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for type1
 	 *
-	 * @param string $type1 offer or search
+	 * @param int $type1 offer or search
 	 * @return void
 	 */
 	public function setType1($type1) {
@@ -231,7 +238,7 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Getter for type1
 	 *
-	 * @return string offer or search
+	 * @return int offer or search
 	 */
 	public function getType1() {
 		return $this->type1;
@@ -240,7 +247,7 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for type2
 	 *
-	 * @param string $type2 private or commercial
+	 * @param int $type2 private or commercial
 	 * @return void
 	 */
 	public function setType2($type2) {
@@ -250,7 +257,7 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Getter for type2
 	 *
-	 * @return string private or commercial
+	 * @return int private or commercial
 	 */
 	public function getType2() {
 		return $this->type2;
@@ -278,11 +285,11 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for different_location
 	 *
-	 * @param boolean $different_location different location than own address
+	 * @param boolean $differentLocation different location than own address
 	 * @return void
 	 */
-	public function setDifferent_location($different_location) {
-		$this->different_location = $different_location;
+	public function setDifferentLocation($differentLocation) {
+		$this->differentLocation = $differentLocation;
 	}
 
 	/**
@@ -290,8 +297,8 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return boolean different location than own address
 	 */
-	public function getDifferent_location() {
-		return $this->different_location;
+	public function getDifferentLocation() {
+		return $this->differentLocation;
 	}
 	
 	/**
@@ -299,18 +306,18 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return bool The state of different_location
 	 */
-	public function isDifferent_location() {
-		$this->getDifferent_location();
+	public function isDifferentLocation() {
+		$this->getDifferentLocation();
 	}
 	
 	/**
 	 * Setter for dl_zip
 	 *
-	 * @param string $dl_zip different location ZIP
+	 * @param string $dlZip different location ZIP
 	 * @return void
 	 */
-	public function setDl_zip($dl_zip) {
-		$this->dl_zip = $dl_zip;
+	public function setDlZip($dlZip) {
+		$this->dlZip = $dlZip;
 	}
 
 	/**
@@ -318,18 +325,18 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return string different location ZIP
 	 */
-	public function getDl_zip() {
-		return $this->dl_zip;
+	public function getDlZip() {
+		return $this->dlZip;
 	}
 	
 	/**
 	 * Setter for dl_city
 	 *
-	 * @param string $dl_city different location city
+	 * @param string $dlCity different location city
 	 * @return void
 	 */
-	public function setDl_city($dl_city) {
-		$this->dl_city = $dl_city;
+	public function setDlCity($dlCity) {
+		$this->dlCity = $dlCity;
 	}
 
 	/**
@@ -337,18 +344,18 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return string different location city
 	 */
-	public function getDl_city() {
-		return $this->dl_city;
+	public function getDlCity() {
+		return $this->dlCity;
 	}
 	
 	/**
 	 * Setter for dl_address
 	 *
-	 * @param string $dl_address different location address
+	 * @param string $dlAddress different location address
 	 * @return void
 	 */
-	public function setDl_address($dl_address) {
-		$this->dl_address = $dl_address;
+	public function setDlAddress($dlAddress) {
+		$this->dlAddress = $dlAddress;
 	}
 
 	/**
@@ -356,18 +363,18 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return string different location address
 	 */
-	public function getDl_address() {
-		return $this->dl_address;
+	public function getDlAddress() {
+		return $this->dlAddress;
 	}
 	
 	/**
 	 * Setter for dl_country
 	 *
-	 * @param string $dl_country different location country
+	 * @param string $dlCountry different location country
 	 * @return void
 	 */
-	public function setDl_country($dl_country) {
-		$this->dl_country = $dl_country;
+	public function setDlCountry($dlCountry) {
+		$this->dlCountry = $dlCountry;
 	}
 
 	/**
@@ -375,18 +382,18 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return string different location country
 	 */
-	public function getDl_country() {
-		return $this->dl_country;
+	public function getDlCountry() {
+		return $this->dlCountry;
 	}
 	
 	/**
 	 * Setter for show_phone
 	 *
-	 * @param boolean $show_phone show phone nr in ad
+	 * @param boolean $showPhone show phone nr in ad
 	 * @return void
 	 */
-	public function setShow_phone($show_phone) {
-		$this->show_phone = $show_phone;
+	public function setShowPhone($showPhone) {
+		$this->showPhone = $showPhone;
 	}
 
 	/**
@@ -394,8 +401,8 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return bool show phone nr in ad
 	 */
-	public function getShow_phone() {
-		return $this->show_phone;
+	public function getShowPhone() {
+		return $this->showPhone;
 	}
 	
 	/**
@@ -403,18 +410,18 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return bool The state of show_phone
 	 */
-	public function isShow_phone() {
-		$this->getShow_phone();
+	public function isShowPhone() {
+		$this->getShowPhone();
 	}
 	
 	/**
 	 * Setter for show_email
 	 *
-	 * @param boolean $show_email show email addr in ad
+	 * @param boolean $showEmail show email addr in ad
 	 * @return void
 	 */
-	public function setShow_email($show_email) {
-		$this->show_email = $show_email;
+	public function setShowEmail($showEmail) {
+		$this->showEmail = $showEmail;
 	}
 
 	/**
@@ -422,8 +429,8 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return bool show email addr in ad
 	 */
-	public function getShow_email() {
-		return $this->show_email;
+	public function getShowEmail() {
+		return $this->showEmail;
 	}
 	
 	/**
@@ -431,8 +438,8 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 *
 	 * @return bool The state of show_email
 	 */
-	public function isShow_email() {
-		$this->getShow_email();
+	public function isShowEmail() {
+		$this->getShowEmail();
 	}
 	
 	/**
@@ -477,6 +484,25 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 	
 	/**
+	 * Setter for pricetype
+	 *
+	 * @param int $pricetype VHB or FP
+	 * @return void
+	 */
+	public function setPricetype($price_type) {
+		$this->pricetype = $price_type;
+	}
+
+	/**
+	 * Getter for pricetype
+	 *
+	 * @return int VHB or FP
+	 */
+	public function getPricetype() {
+		return $this->pricetype;
+	}
+	
+	/**
 	 * Setter for category
 	 *
 	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_NasMarket_Domain_Model_Category> $category category
@@ -516,22 +542,22 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 	
 	/**
-	 * Setter for feuser
+	 * Sets the poster value
 	 *
-	 * @param Tx_NasMarket_Domain_Model_FeUser $feuser feuser
+	 * @param Tx_NasMarket_Domain_Model_Poster $poster The Poster of the Ad
 	 * @return void
 	 */
-	public function setFeuser(Tx_NasMarket_Domain_Model_FeUser $feuser) {
-		$this->feuser = $feuser;
+	public function setPoster(Tx_NasMarket_Domain_Model_Poster $poster) {
+		$this->poster = $poster;
 	}
 
 	/**
-	 * Getter for feuser
+	 * Returns the poster value
 	 *
-	 * @return Tx_NasMarket_Domain_Model_FeUser feuser
+	 * @return Tx_NasMarket_Domain_Model_Poster
 	 */
-	public function getFeuser() {
-		return $this->feuser;
+	public function getPoster() {
+		return $this->poster;
 	}
 	
 }

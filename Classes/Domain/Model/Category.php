@@ -44,7 +44,7 @@ class Tx_NasMarket_Domain_Model_Category extends Tx_Extbase_DomainObject_Abstrac
 	 * parent category
 	 * @var Tx_NasMarket_Domain_Model_Category
 	 */
-	protected $parent;
+	protected $parentcat;
 	
 	/**
 	 * children categories
@@ -85,8 +85,8 @@ class Tx_NasMarket_Domain_Model_Category extends Tx_Extbase_DomainObject_Abstrac
 	 * @param Tx_NasMarket_Domain_Model_Category $parent parent category
 	 * @return void
 	 */
-	public function setParent(Tx_NasMarket_Domain_Model_Category $parent) {
-		$this->parent = $parent;
+	public function setParentcat(Tx_NasMarket_Domain_Model_Category $parent) {
+		$this->parentcat = $parent;
 	}
 
 	/**
@@ -94,11 +94,11 @@ class Tx_NasMarket_Domain_Model_Category extends Tx_Extbase_DomainObject_Abstrac
 	 *
 	 * @return Tx_NasMarket_Domain_Model_Category parent category
 	 */
-	public function getParent() {
-		if ($this->parent instanceof Tx_Extbase_PErsistence_LazyLoadingProxy) {
-			$this->parent->_loadRealInstance();
+	public function getParentcat() {
+		if ($this->parent instanceof Tx_Extbase_Persistence_LazyLoadingProxy) {
+			$this->parentcat->_loadRealInstance();
 		}
-		return $this->parent;
+		return $this->parentcat;
 	}
 	
 	/**

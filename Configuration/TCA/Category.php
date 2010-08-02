@@ -4,10 +4,10 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 $TCA['tx_nasmarket_domain_model_category'] = array(
 	'ctrl' => $TCA['tx_nasmarket_domain_model_category']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'title,image,parent,children'
+		'showRecordFieldList' => 'title,image,parentcat,children'
 	),
 	'types' => array(
-		'1' => array('showitem' => 'title,parent,image,children')
+		'1' => array('showitem' => 'title,parentcat,image,children')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')
@@ -82,7 +82,7 @@ $TCA['tx_nasmarket_domain_model_category'] = array(
                                 'minitems' => 0
 			)
 		),
-		'parent' => array(
+		'parentcat' => array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_category.parent',
 			'config'  => array(
@@ -100,7 +100,7 @@ $TCA['tx_nasmarket_domain_model_category'] = array(
 			'config'  => array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_nasmarket_domain_model_category',
-				'foreign_field' => 'parent',
+				'foreign_field' => 'parentcat',
 				'maxitems'      => 9999,
 				'appearance' => array(
 					'collapse' => 0,

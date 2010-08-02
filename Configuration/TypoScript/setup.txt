@@ -2,18 +2,42 @@ page.includeCSS {
   file_nasmarket = EXT:nas_market/Configuration/style.css
 }
 
-plugin.tx_nasmarket.settings {
-}
-
-plugin.tx_nasmarket._CSS_DEFAULT_STYLE (
-)
-
 #######################################################
 # Class Mapping
 config.tx_extbase.persistence.classes{
-	Tx_NasMarket_Domain_Model_FeUser {
+#	Tx_Extbase_Domain_Model_FrontendUser {
+#		subclasses {
+#			Tx_NasMarket_Domain_Model_Poster = Tx_NasMarket_Domain_Model_Poster
+#		}
+#	}
+	Tx_NasMarket_Domain_Model_Poster {
 		mapping {
 			tableName = fe_users
+#			recordType = Tx_NasMarket_Domain_Model_Poster
 		}
 	}
+}
+
+plugin.tx_nasmarket {
+	settings {
+	}
+
+#	persistence {
+#		classes{
+#			Tx_Extbase_Domain_Model_FrontendUser {
+#				subclasses {
+#					Tx_NasMarket_Domain_Model_Poster = Tx_NasMarket_Domain_Model_Poster
+#				}
+#			}
+#			Tx_NasMarket_Domain_Model_Poster {
+#				mapping {
+#					tableName = fe_users
+#					recordType = Tx_NasMarket_Domain_Model_Poster
+#				}
+#			}
+#		}
+#	}
+	
+	_CSS_DEFAULT_STYLE (
+	)
 }

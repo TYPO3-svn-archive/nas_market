@@ -31,12 +31,18 @@
 			<label index="tx_nasmarket_domain_model_ad.start_date">Start date</label>
 			<label index="tx_nasmarket_domain_model_ad.duration">Duration in days</label>
 			<label index="tx_nasmarket_domain_model_ad.price">Price</label>
+			<label index="tx_nasmarket_domain_model_ad.price_type">Price Type</label>
+			<label index="tx_nasmarket_domain_model_ad.price_type.0">VHB</label>
+			<label index="tx_nasmarket_domain_model_ad.price_type.1">FP</label>
 			<label index="tx_nasmarket_domain_model_ad.category">Category</label>
 			<label index="tx_nasmarket_domain_model_ad.feuser">Feuser</label>
-			<label index="tx_nasmarket_domain_model_feuser">Fe User</label>
-			<label index="tx_nasmarket_domain_model_feuser.agb_accepted">Agb Accepted</label>
-			<label index="tx_nasmarket_domain_model_feuser.show_email">Show Email</label>
-			<label index="tx_nasmarket_domain_model_feuser.show_phone">Show Phone</label>
+			<label index="tx_nasmarket_domain_model_ad.poster">Poster</label>
+			<label index="tx_nasmarket_domain_model_poster">Poster</label>
+			<label index="tx_nasmarket_domain_model_poster.agb_accepted">Agb Accepted</label>
+			<label index="tx_nasmarket_domain_model_poster.show_email">Show Email</label>
+			<label index="tx_nasmarket_domain_model_poster.show_phone">Show Phone</label>
+			
+			<label index="fe_users.tx_extbase_type.Tx_NasMarket_Domain_Model_Poster">Market-Poster</label>
 		</languageKey>
 	</data>
 </T3locallang>

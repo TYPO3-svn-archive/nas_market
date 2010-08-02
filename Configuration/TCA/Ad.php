@@ -4,10 +4,10 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 $TCA['tx_nasmarket_domain_model_ad'] = array(
 	'ctrl' => $TCA['tx_nasmarket_domain_model_ad']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'starttime,duration,endtime,title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,price,category,feuser'
+		'showRecordFieldList' => 'starttime,duration,endtime,title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,price,pricetype,category,poster'
 	),
 	'types' => array(
-		'1' => array('showitem' => 'starttime,duration,endtime,title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,price,category,feuser')
+		'1' => array('showitem' => 'starttime,duration,endtime,title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,price,pricetype,category,poster')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')
@@ -226,6 +226,20 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 				'eval' => 'double2'
 			)
 		),
+                'pricetype' => array(
+			'exclude' => 0,
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.price_type',
+			'config'  => array(
+				'type' => 'select',
+                                'items' => array(
+                                    array('LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.price_type.0',0),
+                                    array('LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.price_type.1',1),
+                                ),
+				'size' => 1,
+                                'maxitems' => 1,
+                                'default' => 0
+			)
+		),
 		'category' => array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.category',
@@ -242,17 +256,17 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 				'maxitems' => 99999
 			)
 		),
-		'feuser' => array(
+		'poster' => array(
 			'exclude' => 0,
-			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.feuser',
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.poster',
 			'config'  => array(
-				'type' => 'group',
-                                'internal_type' => 'db',
-                                'allowed' => 'fe_users',
-				'size' => 1,
-                                'maxitems' => 1,
-                                'minitems' => 0
-			)
+				'type' => 'select',
+				'foreign_table' => 'fe_users',
+				'foreign_table_where' => "AND fe_users.tx_extbase_type='Tx_NasMarket_Domain_Model_Poster'",
+				'items' => array(
+					array('--none--', 0),
+				)
+    			)
 		),
 	),
 );

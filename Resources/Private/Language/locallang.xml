@@ -31,6 +31,9 @@
 			<label index="tx_nasmarket_domain_model_feuser.agb_accepted">agb accepted</label>
 			<label index="tx_nasmarket_domain_model_feuser.show_email">standard for show email in ads</label>
 			<label index="tx_nasmarket_domain_model_feuser.show_phone">standard for show phone in ads</label>
+			
+			<label index="tx_nasmarket_domain_model_ad.pricetype.0">VHB</label>
+			<label index="tx_nasmarket_domain_model_ad.pricetype.1">FP</label>
 		</languageKey>
 	</data>
 </T3locallang>

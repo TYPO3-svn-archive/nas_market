@@ -5,7 +5,7 @@ CREATE TABLE tx_nasmarket_domain_model_category (
 	
 	
 	title tinytext,
-	parent int(11) DEFAULT '0' NOT NULL,
+	parentcat int(11) DEFAULT '0' NOT NULL,
         children int(11) unsigned DEFAULT '0' NOT NULL,
         ads int(11) unsigned DEFAULT '0' NOT NULL,
 	image tinytext,
@@ -40,8 +40,8 @@ CREATE TABLE tx_nasmarket_domain_model_ad (
 	
 	title tinytext,
 	description tinytext,
-	type1 tinytext,
-	type2 tinytext,
+	type1 tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	type2 tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	images tinytext,
 	different_location tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	dl_zip tinytext,
@@ -52,8 +52,9 @@ CREATE TABLE tx_nasmarket_domain_model_ad (
 	show_email tinytext,
 	duration tinytext,
 	price double(11,2) DEFAULT '0.00' NOT NULL,
+        pricetype tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
-	feuser int(11) unsigned DEFAULT '0',
+	poster varchar(255) DEFAULT '',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
