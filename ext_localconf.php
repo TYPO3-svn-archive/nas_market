@@ -6,9 +6,11 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Pi1',
 	array(
                 'Market'    =>  'index',
+                'Ad'        =>  'new'
 	),
 	array(
-                'Market'    =>  'index'
+                'Market'    =>  'index',
+                'Ad'        =>  'new'
 	)
 );
 

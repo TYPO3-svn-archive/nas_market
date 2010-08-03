@@ -34,7 +34,7 @@ class Tx_NasMarket_ViewHelpers_Format_AdPlaceViewHelper extends Tx_Fluid_Core_Vi
 	 * @return string Formatted end date
 	 */
 	public function render($ad) {
-		//t3lib_div::debug($ad);
+		//t3lib_div::debug($ad->getPoster());
 		$output = '&nbsp;';
                 //TODO: get the Fe-User-Class working
                 // for now: only different_location is working

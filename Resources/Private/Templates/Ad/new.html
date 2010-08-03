@@ -1,0 +1,34 @@
+<f:layout name="noleft" />
+
+This Template is for showing the market
+
+<f:section name="header">
+<div class="new_ad">
+    <div class="titletext">Neue Anzeige</div>
+    <div class="searchbutton">
+        <f:link.action action="index" controller="Market">Suchen</f:link.action>
+    </div>
+    <div class="infotext">Kurzer Infotext zu neuen Anzeigen</div>
+</div>
+<f:flashMessages />    
+</f:section>
+
+<f:section name="main">
+    <div class="stepinfo">Kategorie wählen</div>
+    <div class="selected">Derzeit gewählt: <span class="selected_cats" id="selected_cats">test=>test</span></div>
+    <div class="clearer">&nbsp;</div>
+    <div class="firstcat" id="firstcat">
+        <f:for each="{categories}" as="cat">
+            {cat.title}<br />
+        </f:for>
+    </div>
+    <div class="secondcat" id="secondcat">
+        &nbsp;
+    </div>
+    <div class="thirdcat" id="thirdcat">
+        &nbsp;
+    </div>
+    <div class="clearer">&nbsp;</div>
+    <div class="next"><a class="bigbutton" href="#">Weiter zu den Details &rarr;</a></div>
+</f:section>
+

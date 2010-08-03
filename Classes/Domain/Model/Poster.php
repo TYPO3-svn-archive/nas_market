@@ -25,11 +25,9 @@
 ***************************************************************/
 
 /**
- * FeUser
+ * Poster
  *
- * @version $Id$
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * @version $Id:$
  */
 class Tx_NasMarket_Domain_Model_Poster extends Tx_Extbase_Domain_Model_FrontendUser {
 	
