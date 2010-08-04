@@ -50,18 +50,59 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 * @return void
 	 */
 	protected function initializeAction() {
+                parent::initializeAction();
+                
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
                 $this->adRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_AdRepository');
 		//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
 	}
-	/**
-	 * List action for this controller. Displays all questions.
+	
+        /**
+	 * New action for this controller.
+	 *
+	 * @return void
 	 */
 	public function newAction() {
-		$categories = $this->categoryRepository->findAllByParent();
+                $categories = $this->categoryRepository->findAllByParent();
                 $ads = $this->adRepository->findAll();
 		$this->view->assign('categories', $categories);
                 $this->view->assign('ads', $ads);
-        }	
+        }
+        
+        /**
+	 * Sets the Sub-Cats
+	 *
+	 * @return void
+	 * @ajax
+	 */
+	public function cat2Action() {
+            //t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET));
+            $parentCat = $this->categoryRepository->findByUid($this->request->getArgument('parentCat'));
+            $categories = $this->categoryRepository->findAllByParent($parentCat,'title');
+            $this->view->assign('categories',$categories);
+            
+            $rendered = $this->view->render();
+            
+            echo $rendered;
+            exit;
+        }
+        
+        /**
+	 * Sets the 2. Sub-Cats
+	 *
+	 * @return void
+	 * @ajax
+	 */
+	public function cat3Action() {
+            //t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET));
+            $parentCat = $this->categoryRepository->findByUid($this->request->getArgument('parentCat'));
+            $categories = $this->categoryRepository->findAllByParent($parentCat,'title');
+            $this->view->assign('categories',$categories);
+            
+            $rendered = $this->view->render();
+            
+            echo $rendered;
+            exit;
+        }
 }
 ?>

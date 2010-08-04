@@ -37,14 +37,14 @@ class Tx_NasMarket_Domain_Repository_CategoryRepository extends Tx_Extbase_Persi
     * @param Tx_NasMarket_Domain_Model_Category $parent The Parent Category for the tree
     * @return array The categories
     */
-    public function findAllByParent(Tx_NasMarket_Domain_Model_Category $parent = NULL){
+    public function findAllByParent(Tx_NasMarket_Domain_Model_Category $parent = NULL, $orderBy='sorting'){
         $query = $this->createQuery();
         if ($parent == NULL) $query->matching($query->equals('parentcat', 0));
         else {
             $query->matching($query->equals('parentcat', $parent));
         }
         
-        $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
+        $query->setOrderings(array($orderBy => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
         #t3lib_div::debug($query);
 	return $query->execute();
     }

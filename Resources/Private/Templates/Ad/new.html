@@ -1,3 +1,4 @@
+{namespace extjs=Tx_MvcExtjs_ViewHelpers}
 <f:layout name="noleft" />
 
 This Template is for showing the market
@@ -19,7 +20,7 @@ This Template is for showing the market
     <div class="clearer">&nbsp;</div>
     <div class="firstcat" id="firstcat">
         <f:for each="{categories}" as="cat">
-            {cat.title}<br />
+            <a href="#" onclick="setCat1({cat.uid},'{cat.title}');return false;">{cat.title}</a><br />
         </f:for>
     </div>
     <div class="secondcat" id="secondcat">
@@ -30,5 +31,7 @@ This Template is for showing the market
     </div>
     <div class="clearer">&nbsp;</div>
     <div class="next"><a class="bigbutton" href="#">Weiter zu den Details &rarr;</a></div>
+    
+    <div id="MvcExtjsSamples-SimpleForm"></div>
 </f:section>
 

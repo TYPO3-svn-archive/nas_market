@@ -1,5 +1,10 @@
 page.includeCSS { 
-  file_nasmarket = EXT:nas_market/Configuration/style.css
+	file_nasmarket = EXT:nas_market/Configuration/style.css
+}
+
+page.includeJS {
+	file_nasmarket_1 = EXT:nas_market/Resources/Public/Scripts/jquery-1.4.2.min.js
+	file_nasmarket_2 = EXT:nas_market/Resources/Public/Scripts/tx_nasmarket.js
 }
 
 #######################################################
