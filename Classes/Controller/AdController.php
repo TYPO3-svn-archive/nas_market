@@ -54,13 +54,13 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
                 
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
                 $this->adRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_AdRepository');
-		//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
+		t3lib_div::devLog('settings', 'test' , 0, $this->settings);
 	}
 	
         /**
 	 * New action for this controller.
 	 *
-	 * @return void
+	 * @return string An HTML Page for Cat-Selection (1.Step)
 	 */
 	public function newAction() {
                 $categories = $this->categoryRepository->findAllByParent();
@@ -69,14 +69,31 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
         }
         
         /**
-	 * New action for this controller.
+	 * New Step 2 action for this controller.
 	 *
-	 * @param newAd Tx_NasMarket_Domain_Model_Ad
+	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
+	 * @return string An HTML form for creating a new ad
+	 * @dontvalidate $newAd
+	 */
+	public function newStep2Action(Tx_NasMarket_Domain_Model_Ad $newAd = NULL) {
+                $cat = $this->categoryRepository->findByUid($this->request->getArgument('category'));
+                $this->view->assign('category',array($cat));
+                $this->view->assign('newAd',$newAd);
+                
+                //t3lib_div::devLog('arguments', 'test' , 0, $this->request->getArguments());
+        }
+        
+        /**
+	 * Creates a new ad
+	 *
+	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
 	 * @return void
 	 */
-	public function new2Action(Tx_NasMarket_Domain_Model_Ad $newAd) {
-                $this->view->assign('category', $category);
-        }
+	public function createAction(Tx_NasMarket_Domain_Model_ad $newAd) {
+		$this->adRepository->add($newAd);
+		$this->flashMessages->add('Your new ad was created.');
+		$this->redirect('index','Market');
+	}
         
         /**
 	 * Sets the Sub-Cats

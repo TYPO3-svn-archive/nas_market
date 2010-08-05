@@ -28,10 +28,10 @@
     </div>
     <div class="clearer">&nbsp;</div>
     <div class="next">
-        <f:form method="post" controller="Ad" action="new2" name="newAd" object="{newAd}">
-            <f:form.hidden name="category" value="" id="category" />
+        <form method="post" action="index.php?id=1&amp;tx_nasmarket_pi1[action]=newStep2&amp;tx_nasmarket_pi1[controller]=Ad" name="newAd">
+            <input type="hidden" name="tx_nasmarket_pi1[category]" value="0" id="category" />
             <a href="javascript:document.newAd.submit();" class="bigbutton">Weiter zu den Details &rarr;</a>
-        </f:form>
+        <form>
     </div>
 </f:section>
 

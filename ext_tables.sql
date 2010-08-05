@@ -39,7 +39,7 @@ CREATE TABLE tx_nasmarket_domain_model_ad (
 	
 	
 	title tinytext,
-	description tinytext,
+	description text,
 	type1 tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	type2 tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	images tinytext,

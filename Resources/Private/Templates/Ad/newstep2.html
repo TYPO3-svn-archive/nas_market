@@ -1,0 +1,53 @@
+{namespace nasm=Tx_NasMarket_ViewHelpers}
+<f:layout name="noleft" />
+
+<f:section name="header">
+<div class="new_ad">
+    <div class="titletext">Neue Anzeige</div>
+    <div class="searchbutton">
+        <f:link.action action="index" controller="Market">Suchen</f:link.action>
+    </div>
+    <div class="infotext">Kurzer Infotext zu neuen Anzeigen</div>
+</div>
+<f:flashMessages />    
+</f:section>
+
+<f:section name="main">
+    <f:form method="post" controller="Ad" action="create" name="newAd" object="{newAd}" id="newAd" class="newAd">
+        <label for="category">Kategorie:</label><nasm:format.firstCat cats="{category}" />
+        <f:form.hidden name="category" value="{category.0}" />
+        <div class="clearer">&nbsp;</div>
+        
+        <label for="type1">Anzeigentyp:</label>
+        <f:form.radio name="type1" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type1.0" />
+        <f:form.radio name="type1" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type1.1" />
+        <div class="clearer">&nbsp;</div>
+        <label for="type2">&nbsp;</label>
+        <f:form.radio name="type2" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type2.0" />
+        <f:form.radio name="type2" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type2.1" />
+        <div class="clearer">&nbsp;</div>
+        
+        <label for="title">Titel:</label>
+        <f:form.textbox name="title" />
+        <div class="clearer">&nbsp;</div>
+        
+        <label for="description">Beschreibung:</label>
+        <f:form.textarea name="description" rows="10" cols="40" />
+        <div class="clearer">&nbsp;</div>
+        
+        <label for="images">Bilder:</label>
+        <div class="img_upload">
+            <f:form.upload name="images[0]" />
+        </div>
+        <div class="img_upload">
+            <f:form.upload name="images[1]" />
+        </div>
+        <div class="img_upload">
+            <f:form.upload name="images[2]" />
+        </div>
+        <div class="img_upload">
+            <f:form.upload name="images[3]" />
+        </div>
+        <div class="clearer">&nbsp;</div>
+    </f:form>
+</f:section>
