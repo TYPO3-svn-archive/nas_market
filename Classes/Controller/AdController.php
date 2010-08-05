@@ -66,7 +66,16 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
                 $categories = $this->categoryRepository->findAllByParent();
                 $ads = $this->adRepository->findAll();
 		$this->view->assign('categories', $categories);
-                $this->view->assign('ads', $ads);
+        }
+        
+        /**
+	 * New action for this controller.
+	 *
+	 * @param newAd Tx_NasMarket_Domain_Model_Ad
+	 * @return void
+	 */
+	public function new2Action(Tx_NasMarket_Domain_Model_Ad $newAd) {
+                $this->view->assign('category', $category);
         }
         
         /**
@@ -75,7 +84,7 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 * @return void
 	 * @ajax
 	 */
-	public function cat2Action() {
+	public function ajaxNewCat2Action() {
             //t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET));
             $parentCat = $this->categoryRepository->findByUid($this->request->getArgument('parentCat'));
             $categories = $this->categoryRepository->findAllByParent($parentCat,'title');
@@ -93,11 +102,28 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 * @return void
 	 * @ajax
 	 */
-	public function cat3Action() {
+	public function ajaxNewCat3Action() {
             //t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET));
             $parentCat = $this->categoryRepository->findByUid($this->request->getArgument('parentCat'));
             $categories = $this->categoryRepository->findAllByParent($parentCat,'title');
             $this->view->assign('categories',$categories);
+            
+            $rendered = $this->view->render();
+            
+            echo $rendered;
+            exit;
+        }
+        
+        /**
+	 * Sets the Selected-Cat-Line
+	 *
+	 * @return void
+	 * @ajax
+	 */
+	public function ajaxNewSelectedCatAction() {
+            //t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET));
+            $cat = $this->categoryRepository->findByUid($this->request->getArgument('cat'));
+            $this->view->assign('category',array($cat));
             
             $rendered = $this->view->render();
             

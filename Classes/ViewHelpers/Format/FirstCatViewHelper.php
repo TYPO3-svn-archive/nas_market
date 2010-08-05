@@ -34,12 +34,18 @@ class Tx_NasMarket_ViewHelpers_Format_FirstCatViewHelper extends Tx_Fluid_Core_V
 	 * @return string Formattet FirstCat
 	 */
 	public function render($cats) {
+		//t3lib_div::debug($cats);
 		$output = '';
 		foreach ($cats as $cat){
 			$parent = $cat->getParentcat();
 			if ($parent){
+				$parent_parent = $parent->getParentcat();
+				if ($parent_parent){
+					$output .= $parent_parent->getTitle();
+					$output .= ' &rarr; ';
+				}
 				$output .= $parent->getTitle();
-				$output .= ' => ';
+				$output .= ' &rarr; ';
 			}
 			$output .= $cat->getTitle();
 		}
