@@ -52,9 +52,11 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	protected function initializeAction() {
                 parent::initializeAction();
                 
+                Tx_NasMarket_Utility_Imageresize::resize($uploadfile,100,100);
+                
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
                 $this->adRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_AdRepository');
-		t3lib_div::devLog('settings', 'test' , 0, $this->settings);
+		//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
 	}
 	
         /**
@@ -94,6 +96,27 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 		$this->flashMessages->add('Your new ad was created.');
 		$this->redirect('index','Market');
 	}
+        
+        /**
+         * Uploads an Image
+         *
+         * @return void
+         * @ajax
+         */
+        public function ajaxNewAddImageUploadAction() {
+            t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET, $_FILES));
+            $uploaddir = '/var/www/dev/4_4/market/uploads/pics/';
+            $uploadfile = $uploaddir . basename($_FILES['myfile']['name']);
+               
+            //move_uploaded_file ist die Standard PHP-Funktion um Dateien auf dem Server zu verarbeiten
+            if (move_uploaded_file($_FILES['myfile']['tmp_name'], $uploadfile)) {
+                Tx_NasMarket_Utility_Imageresize::resize($uploadfile,600,500);
+                echo "success";
+            } else {
+                // Als echo keinesfalls false benutzen. Führt zu Konflikten mit dem Ajax-Request
+                echo "error";
+            }
+        }
         
         /**
 	 * Sets the Sub-Cats
