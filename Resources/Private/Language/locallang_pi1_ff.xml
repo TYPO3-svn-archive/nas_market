@@ -8,6 +8,11 @@
 		<languageKey index="default" type="array">
 			<label index="ff.sheet_general">General</label>
                         <label index="ff.storage_pid">Storage PID</label>
+                        <label index="ff.new_ad_ug">User Group allowed to create new Ads</label>
+                        
+                        <label index="ff.sheet_images">Images</label>
+                        <label index="ff.image_path">Upload Image Path</label>
+                        <label index="ff.max_images">Max images per Ad</label>
 		</languageKey>
 	</data>
 </T3locallang>

@@ -43,6 +43,11 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 * @var Tx_NasMarket_Domain_Repository_AdRepository
 	 */
 	protected $adRepository;
+        
+        /**
+         * @var string
+         */
+        protected $basePath;
 
 	/**
 	 * Initializes the current action
@@ -52,10 +57,10 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	protected function initializeAction() {
                 parent::initializeAction();
                 
-                Tx_NasMarket_Utility_Imageresize::resize($uploadfile,100,100);
-                
-		$this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
+                $this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
                 $this->adRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_AdRepository');
+                
+                $this->basePath = realpath('.');
 		//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
 	}
 	
@@ -65,6 +70,7 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 * @return string An HTML Page for Cat-Selection (1.Step)
 	 */
 	public function newAction() {
+                t3lib_div::devLog('test', 'newAction', 0, array($_POST,$_GET, $_FILES, realpath('.')));
                 $categories = $this->categoryRepository->findAllByParent();
                 $ads = $this->adRepository->findAll();
 		$this->view->assign('categories', $categories);
@@ -104,18 +110,25 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
          * @ajax
          */
         public function ajaxNewAddImageUploadAction() {
-            t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET, $_FILES));
-            $uploaddir = '/var/www/dev/4_4/market/uploads/pics/';
-            $uploadfile = $uploaddir . basename($_FILES['myfile']['name']);
+            //t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET, $_FILES, realpath('.')));
+            $uploaddir = $this->settings['uploadImagePath'];
+            $userdir = $GLOBALS['TSFE']->fe_user->user['username'].'/';
+            mkdir($this->basePath.'/'.$uploaddir.$userdir,0777);
+            //t3lib_div::devLog('test', 'test', 0, array($this->basePath,$uploaddir,$userdir));
+            
+            $filename = basename($_FILES['myfile']['name']);
+            $uploadfile = $this->basePath.'/'.$uploaddir.$userdir.$filename;
+            //t3lib_div::devLog('dir/file', 'ajaxNewAddImageUploadAction', 0, array($uploaddir,$uploadfile));
                
             //move_uploaded_file ist die Standard PHP-Funktion um Dateien auf dem Server zu verarbeiten
             if (move_uploaded_file($_FILES['myfile']['tmp_name'], $uploadfile)) {
                 Tx_NasMarket_Utility_Imageresize::resize($uploadfile,600,500);
-                echo "success";
+                echo $this->settings['uploadImagePath'].$userdir.$filename;
             } else {
                 // Als echo keinesfalls false benutzen. Führt zu Konflikten mit dem Ajax-Request
                 echo "error";
             }
+            exit;
         }
         
         /**
