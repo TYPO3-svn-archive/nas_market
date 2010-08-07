@@ -1,0 +1,37 @@
+<f:layout name="noleft" />
+
+<f:section name="header">
+<div class="new_ad">
+    <div class="titletext">Neue Anzeige</div>
+    <div class="searchbutton">
+        <f:link.action action="index" controller="Market">Suchen</f:link.action>
+    </div>
+    <div class="infotext">Kurzer Infotext zu neuen Anzeigen</div>
+</div>
+<f:flashMessages />    
+</f:section>
+
+<f:section name="main">
+    <div class="stepinfo">Kategorie wählen</div>
+    <div class="selected">Derzeit gewählt: <span class="selected_cats" id="selected_cats">&nbsp;</span></div>
+    <div class="clearer">&nbsp;</div>
+    <div class="firstcat" id="firstcat">
+        <f:for each="{categories}" as="cat">
+            <a href="#" onclick="setCat1({cat.uid});return false;">{cat.title}</a><br />
+        </f:for>
+    </div>
+    <div class="secondcat" id="secondcat">
+        &nbsp;
+    </div>
+    <div class="thirdcat" id="thirdcat">
+        &nbsp;
+    </div>
+    <div class="clearer">&nbsp;</div>
+    <div class="next">
+        <form method="post" action="index.php?id=1&amp;tx_nasmarket_pi1[action]=newStep2&amp;tx_nasmarket_pi1[controller]=Ad" name="newAd">
+            <input type="hidden" name="tx_nasmarket_pi1[category]" value="0" id="category" />
+            <a href="javascript:document.newAd.submit();" class="bigbutton">Weiter zu den Details &rarr;</a>
+        <form>
+    </div>
+</f:section>
+
