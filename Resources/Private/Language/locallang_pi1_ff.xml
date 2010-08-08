@@ -13,6 +13,11 @@
                         <label index="ff.sheet_images">Images</label>
                         <label index="ff.image_path">Upload Image Path</label>
                         <label index="ff.max_images">Max images per Ad</label>
+                        <label index="ff.max_image_size">Max size of image in KB</label>
+                        <label index="ff.thumb_height">max. Height of Thumbnail-Images in Pixel</label>
+                        <label index="ff.thumb_width">max. Width of Thumbnail-Images in Pixel</label>
+                        <label index="ff.image_height">max. Height of Images in Pixel (will autoscale during upload)</label>
+                        <label index="ff.image_width">max. Width of Images in Pixel (will autoscale during upload)</label>
 		</languageKey>
 	</data>
 </T3locallang>

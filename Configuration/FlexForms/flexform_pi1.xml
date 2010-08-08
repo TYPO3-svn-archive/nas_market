@@ -70,6 +70,61 @@
                             </config>
                         </TCEforms>
                     </settings.maxUploadImages>
+                    <settings.maxUploadImageSize>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:nas_market/Resources/Private/Language/locallang_pi1_ff.xml:ff.max_image_size</label>
+                            <config>
+                                <type>input</type>
+                                <size>6</size>
+                                <eval>int</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.maxUploadImageSize>
+                    <settings.thumbWidth>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:nas_market/Resources/Private/Language/locallang_pi1_ff.xml:ff.thumb_width</label>
+                            <config>
+                                <type>input</type>
+                                <size>6</size>
+                                <eval>int</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.thumbWidth>
+                    <settings.thumbHeight>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:nas_market/Resources/Private/Language/locallang_pi1_ff.xml:ff.thumb_height</label>
+                            <config>
+                                <type>input</type>
+                                <size>6</size>
+                                <eval>int</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.thumbHeight>
+                    <settings.imageWidth>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:nas_market/Resources/Private/Language/locallang_pi1_ff.xml:ff.image_width</label>
+                            <config>
+                                <type>input</type>
+                                <size>6</size>
+                                <eval>int</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.imageWidth>
+                    <settings.imageHeight>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:nas_market/Resources/Private/Language/locallang_pi1_ff.xml:ff.image_height</label>
+                            <config>
+                                <type>input</type>
+                                <size>6</size>
+                                <eval>int</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.imageHeight>
                 </el>
             </ROOT>
         </imgDEF>

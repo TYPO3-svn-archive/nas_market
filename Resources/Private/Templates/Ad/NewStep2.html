@@ -54,10 +54,12 @@
 				this.enable();
 				
 				// add file to the list
-				if (response != 'error'){
-				    $('<div class="img_file"><img src="'+response+'" /></div>').appendTo('#uploaded_images');
-				} else {
+				if (response == 'error_toobig') {
+				    alert ('File too big');
+				} else  if (response == 'error') {
 				    alert ('Error Uploading File');
+				} else {
+				    $('<div class="img_file"><img src="'+response+'" /></div>').appendTo('#uploaded_images');
 				}
 				
 				//make a count up
@@ -79,28 +81,58 @@
 		<f:form.hidden name="category" value="{category.0}" />
 		<div class="clearer">&nbsp;</div>
 		
-		<label for="type1">Anzeigentyp:</label>
-		<f:form.radio name="type1" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type1.0" />
-		<f:form.radio name="type1" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type1.1" />
+		<div class="right_part">
+		    Einstellungen:<br/>
+		    <f:form.checkbox name="different_location" id="different_location" onclick="toggleDLFields();"/><f:translate key="tx_nasmarket_domain_model_ad.different_location" />
+		    <div class="dl_part">
+			<label for="dl_address">Strasse:</label><f:form.textbox id="dl_address" name="dl_address" disabled="disabled"/>
+			<div class="clearer">&nbsp;</div>
+			<label for="dl_zip">PLZ:</label><f:form.textbox id="dl_zip" name="dl_zip" disabled="disabled"/>
+			<div class="clearer">&nbsp;</div>
+			<label for="dl_city">Stadt:</label><f:form.textbox id="dl_city" name="dl_city" disabled="disabled"/>
+			<div class="clearer">&nbsp;</div>
+			<label for="dl_country">Land:</label><f:form.textbox id="dl_country" name="dl_country" disabled="disabled"/>
+			<div class="clearer">&nbsp;</div>
+		    </div>
+		    <p>
+			<f:form.checkbox name="show_phone"/>Telefonnummer anzeigen<br />
+			<f:form.checkbox name="show_email"/>Email-Adresse anzeigen
+		    </p>
+		    <p>
+			Laufzeit: <br />
+		    </p>
+		    <p>
+			Preis: <br />
+		    </p>
+		</div>
+		<div class="left_part">
+		    <label for="type1">Anzeigentyp:</label>
+		    <f:form.radio name="type1" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type1.0" />
+		    <f:form.radio name="type1" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type1.1" />
+		    <div class="clearer">&nbsp;</div>
+		    <label for="type2">&nbsp;</label>
+		    <f:form.radio name="type2" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type2.0" />
+		    <f:form.radio name="type2" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type2.1" />
+		    <div class="clearer">&nbsp;</div>
+		    
+		    <label for="title">Titel:</label>
+		    <f:form.textbox name="title"/>
+		    <div class="clearer">&nbsp;</div>
+		    
+		    <label for="description">Beschreibung:</label>
+		    <f:form.textarea name="description" rows="10" cols="54" />
+		    <div class="clearer">&nbsp;</div>
+		    
+		    <label for="images">Bilder:</label>
+		    <div id="uploaded_images" class="uploaded_images">
+			(maximal {settings.maxUploadImages} Stück / maximal {settings.maxUploadImageSize} KB)<br />
+		    </div>
+		    <div class="clearer">&nbsp;</div>
+		    <div id="upload_button" class="upload_button">Upload</div>
+		</div>	      
 		<div class="clearer">&nbsp;</div>
-		<label for="type2">&nbsp;</label>
-		<f:form.radio name="type2" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type2.0" />
-		<f:form.radio name="type2" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type2.1" />
-		<div class="clearer">&nbsp;</div>
-		
-		<label for="title">Titel:</label>
-		<f:form.textbox name="title" />
-		<div class="clearer">&nbsp;</div>
-		
-		<label for="description">Beschreibung:</label>
-		<f:form.textarea name="description" rows="10" cols="40" />
-		<div class="clearer">&nbsp;</div>
-		
-		<label for="images">Bilder:</label>
-		<div id="uploaded_images" class="uploaded_images">&nbsp;</div>
-		<div class="clearer">&nbsp;</div>
-		<div id="upload_button" class="upload_button">Upload</div>
-	      
+		<a href="javascript:document.newAd.submit();" class="bigbutton">Anzeige aufgeben</a>
+		Disclaimer
 		<div class="clearer">&nbsp;</div>
 	    </f:form>
 	</f:then>

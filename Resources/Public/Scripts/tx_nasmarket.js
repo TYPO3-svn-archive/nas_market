@@ -59,3 +59,17 @@ function setCat3(cat3){
     });
     $("#category").val(cat3);
 };
+
+function toggleDLFields(){
+    if ($('#different_location:checked').val() == null){
+	$('#dl_address').attr("disabled", true);
+	$('#dl_zip').attr("disabled", true);
+	$('#dl_city').attr("disabled", true);
+	$('#dl_country').attr("disabled", true);
+    } else {
+	$('#dl_address').removeAttr("disabled"); 
+	$('#dl_zip').removeAttr("disabled"); 
+	$('#dl_city').removeAttr("disabled"); 
+	$('#dl_country').removeAttr("disabled"); 
+    }
+}

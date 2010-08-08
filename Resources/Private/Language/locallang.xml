@@ -34,10 +34,11 @@
 			
 			<label index="tx_nasmarket_domain_model_ad.pricetype.0">VHB</label>
 			<label index="tx_nasmarket_domain_model_ad.pricetype.1">FP</label>
-			<label index="tx_nasmarket_domain_model_ad.type1.0">Suche</label>
-			<label index="tx_nasmarket_domain_model_ad.type1.1">Biete</label>
+			<label index="tx_nasmarket_domain_model_ad.type1.0">Biete</label>
+			<label index="tx_nasmarket_domain_model_ad.type1.1">Suche</label>
 			<label index="tx_nasmarket_domain_model_ad.type2.0">Privat</label>
 			<label index="tx_nasmarket_domain_model_ad.type2.1">Gewerblich</label>
+			<label index="tx_nasmarket_domain_model_ad.different_location">Standort abweichend von eigener Adresse</label>
 			
 		</languageKey>
 	</data>

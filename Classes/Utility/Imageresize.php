@@ -40,10 +40,10 @@ class Tx_NasMarket_Utility_Imageresize {
      * @var int $maxWidth new max Width
      * @return void
      */
-    public static function resize($filename, $maxWidth, $maxHeight) {
+    public static function resize($filename, $newname, $maxWidth, $maxHeight) {
         $image_info = getimagesize($filename);
         
-        t3lib_div::devLog('test', 'Utility_ImageResize', 0, $image_info);
+        t3lib_div::devLog('test '.$newname, 'Utility_ImageResize', 0, array($filename,$newname,$maxWidth,$maxHeight,$image_info));
         
         $image_type = $image_info[2];
         if( $image_type == IMAGETYPE_JPEG ) {
@@ -87,15 +87,15 @@ class Tx_NasMarket_Utility_Imageresize {
             $image = $new_image;
         }
         
+        t3lib_div::devLog('test '.$newname, 'Utility_ImageResize', 0, array($image_type,$newWidth,$newHeight,$ratio));
+        
         if( $image_type == IMAGETYPE_JPEG ) {
-            imagejpeg($image,$filename,75);
+            imagejpeg($image,$newname,75);
         } elseif( $image_type == IMAGETYPE_GIF ) {
-            imagegif($image,$filename);         
+            imagegif($image,$newname);         
         } elseif( $image_type == IMAGETYPE_PNG ) {
-            imagepng($image,$filename);
+            imagepng($image,$newname);
         }  
     }
-    
-
 }
 ?>

@@ -88,6 +88,7 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
                 $this->view->assign('category',array($cat));
                 $this->view->assign('newAd',$newAd);
                 
+                //t3lib_div::debug($this->settings);                
                 //t3lib_div::devLog('arguments', 'test' , 0, $this->request->getArguments());
         }
         
@@ -110,23 +111,33 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
          * @ajax
          */
         public function ajaxNewAddImageUploadAction() {
-            //t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET, $_FILES, realpath('.')));
-            $uploaddir = $this->settings['uploadImagePath'];
-            $userdir = $GLOBALS['TSFE']->fe_user->user['username'].'/';
-            mkdir($this->basePath.'/'.$uploaddir.$userdir,0777);
-            //t3lib_div::devLog('test', 'test', 0, array($this->basePath,$uploaddir,$userdir));
-            
-            $filename = basename($_FILES['myfile']['name']);
-            $uploadfile = $this->basePath.'/'.$uploaddir.$userdir.$filename;
-            //t3lib_div::devLog('dir/file', 'ajaxNewAddImageUploadAction', 0, array($uploaddir,$uploadfile));
-               
-            //move_uploaded_file ist die Standard PHP-Funktion um Dateien auf dem Server zu verarbeiten
-            if (move_uploaded_file($_FILES['myfile']['tmp_name'], $uploadfile)) {
-                Tx_NasMarket_Utility_Imageresize::resize($uploadfile,600,500);
-                echo $this->settings['uploadImagePath'].$userdir.$filename;
+            t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET, $_FILES, realpath('.')));
+            if ($_FILES['myfile']['size'] > ($this->settings['maxUploadImageSize']*1024)){
+                echo "error_toobig";
             } else {
-                // Als echo keinesfalls false benutzen. Führt zu Konflikten mit dem Ajax-Request
-                echo "error";
+                $uploaddir = $this->settings['uploadImagePath'];
+                $userdir = $GLOBALS['TSFE']->fe_user->user['username'].'/';
+                mkdir($this->basePath.'/'.$uploaddir.$userdir,0777);
+                //t3lib_div::devLog('test', 'test', 0, array($this->basePath,$uploaddir,$userdir));
+                
+                $filename = basename($_FILES['myfile']['name']);
+                $temp_name = explode('.',$filename);
+                $ending = $temp_name[count($temp_name)-1];
+                unset($temp_name[count($temp_name)-1]);
+                $thumbname = implode('.',$temp_name).'_thumb.'.$ending;
+                $uploadfile = $this->basePath.'/'.$uploaddir.$userdir.$filename;
+                $thumbfile = $this->basePath.'/'.$uploaddir.$userdir.$thumbname;
+                //t3lib_div::devLog('dir/file', 'ajaxNewAddImageUploadAction', 0, array($uploaddir,$uploadfile));
+                   
+                //move_uploaded_file ist die Standard PHP-Funktion um Dateien auf dem Server zu verarbeiten
+                if (move_uploaded_file($_FILES['myfile']['tmp_name'], $uploadfile)) {
+                    Tx_NasMarket_Utility_Imageresize::resize($uploadfile,$uploadfile,$this->settings['imageWidth'],$this->settings['imageHeight']);
+                    Tx_NasMarket_Utility_Imageresize::resize($uploadfile,$thumbfile,$this->settings['thumbWidth'],$this->settings['thumbHeight']);
+                    echo $this->settings['uploadImagePath'].$userdir.$thumbname;
+                } else {
+                    // Als echo keinesfalls false benutzen. Führt zu Konflikten mit dem Ajax-Request
+                    echo "error";
+                }
             }
             exit;
         }
