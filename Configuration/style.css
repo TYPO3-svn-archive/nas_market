@@ -122,6 +122,12 @@
     font-size: 16px;
 }
 
+.tx-nasmarket-pi1 .right_part .price {
+    width: 100px;
+    text-align: right;
+}
+
+
 /*************************************************/
 /* main                                          */
 .tx-nasmarket-pi1 .main {
