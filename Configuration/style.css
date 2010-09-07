@@ -110,6 +110,19 @@
 }
 
 /*************************************************/
+/* left-part (new Ad screen)                         */
+.tx-nasmarket-pi1 .left_part .title {
+    width: 457px;
+}
+
+/*************************************************/
+/* right-part (new Ad screen)                         */
+.tx-nasmarket-pi1 .right_part h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+/*************************************************/
 /* main                                          */
 .tx-nasmarket-pi1 .main {
     margin-left: 170px;

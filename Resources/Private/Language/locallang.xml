@@ -24,6 +24,7 @@
 			<label index="tx_nasmarket_domain_model_ad.show_phone">show phone nr in ad</label>
 			<label index="tx_nasmarket_domain_model_ad.show_email">show email addr in ad</label>
 			<label index="tx_nasmarket_domain_model_ad.duration">duration in days</label>
+			<label index="tx_nasmarket_domain_model_ad.duration_days">Tage</label>
 			<label index="tx_nasmarket_domain_model_ad.price">price</label>
 			<label index="tx_nasmarket_domain_model_ad.category">category</label>
 			<label index="tx_nasmarket_domain_model_ad.feuser">feuser</label>
