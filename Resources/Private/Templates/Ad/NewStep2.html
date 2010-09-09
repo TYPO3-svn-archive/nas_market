@@ -100,11 +100,9 @@
 		    </p>
 		    <p>
 			<h4>Laufzeit</h4>
-			<f:form.radio name="duration" value="3" />3 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
-			<f:form.radio name="duration" value="7" />7 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
 			<f:form.radio name="duration" value="14" />14 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
-			<f:form.radio name="duration" value="21" />21 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
 			<f:form.radio name="duration" value="30" />30 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
+			<f:form.radio name="duration" value="60" />60 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
 		    </p>
 		    <p>
 			<h4>Preis</h4>
@@ -144,7 +142,7 @@
 		</div>	      
 		<div class="clearer">&nbsp;</div>
 		<a href="javascript:document.newAd.submit();" class="bigbutton">Anzeige aufgeben</a>
-		Disclaimer
+		<f:form.checkbox name="disclaimer" /> Disclaimer
 		<div class="clearer">&nbsp;</div>
 	    </f:form>
 	</f:then>
