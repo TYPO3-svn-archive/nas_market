@@ -90,10 +90,11 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	public function newStep2Action(Tx_NasMarket_Domain_Model_Ad $newAd) {
                 $temp = $this->request->getArgument('newAd');
                 $cat = $this->categoryRepository->findByUid($temp['category']);
+                $newAd->addCategory($cat);
                 $this->view->assign('category',array($cat));
                 $this->view->assign('newAd',$newAd);
                 
-                t3lib_div::debug($newAd, 'newStep2');
+                //t3lib_div::debug($newAd, 'newStep2');
                 t3lib_div::devLog('test new Step 2', 'newStep2', 0, array($_POST,$_GET, $_FILES, realpath('.')));
                 t3lib_div::devLog('arguments', 'test' , 0, $this->request->getArguments());
         }

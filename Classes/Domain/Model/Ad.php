@@ -148,16 +148,7 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @var Tx_NasMarket_Domain_Model_Poster
 	 */
 	protected $poster;
-	
-	/**
-	 * Constructor of the Ad
-	 *
-	 * @return void
-	 */	
-	public function __construct() {    
-		$this->showEmail = false;
-		$this->showPhone = false;
-	}
+
 	
 	/**
 	 * Setter for starttime
@@ -403,25 +394,25 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return void
 	 */
 	public function setShowPhone($showPhone) {
-		$this->showPhone = $showPhone;
+		$this->showPhone = (boolean) $showPhone;
 	}
 
 	/**
 	 * Getter for show_phone
 	 *
-	 * @return bool show phone nr in ad
+	 * @return boolean show phone nr in ad
 	 */
 	public function getShowPhone() {
-		return $this->showPhone;
+		return (boolean) $this->showPhone;
 	}
 	
 	/**
 	 * Returns the boolean state of show_phone
 	 *
-	 * @return bool The state of show_phone
+	 * @return boolean The state of show_phone
 	 */
 	public function isShowPhone() {
-		$this->getShowPhone();
+		return $this->getShowPhone();
 	}
 	
 	/**
@@ -431,25 +422,25 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return void
 	 */
 	public function setShowEmail($showEmail) {
-		$this->showEmail = $showEmail;
+		$this->showEmail = (boolean) $showEmail;
 	}
 
 	/**
 	 * Getter for show_email
 	 *
-	 * @return bool show email addr in ad
+	 * @return boolean show email addr in ad
 	 */
 	public function getShowEmail() {
-		return $this->showEmail;
+		return (boolean) $this->showEmail;
 	}
 	
 	/**
 	 * Returns the boolean state of show_email
 	 *
-	 * @return bool The state of show_email
+	 * @return boolean The state of show_email
 	 */
 	public function isShowEmail() {
-		$this->getShowEmail();
+		return $this->getShowEmail();
 	}
 	
 	/**
