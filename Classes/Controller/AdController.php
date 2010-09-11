@@ -67,12 +67,15 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
         /**
 	 * New action for this controller.
 	 *
+	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
 	 * @return string An HTML Page for Cat-Selection (1.Step)
+	 * @dontvalidate $newAd
+	 * @dontverifyrequesthash
 	 */
-	public function newAction() {
-                t3lib_div::devLog('test', 'newAction', 0, array($_POST,$_GET, $_FILES, realpath('.')));
+	public function newAction(Tx_NasMarket_Domain_Model_Ad $newAd = NULL) {
+                //t3lib_div::devLog('test', 'newAction', 0, array($_POST,$_GET, $_FILES, realpath('.')));
                 $categories = $this->categoryRepository->findAllByParent();
-                $ads = $this->adRepository->findAll();
+                //$ads = $this->adRepository->findAll();
 		$this->view->assign('categories', $categories);
         }
         
@@ -82,14 +85,17 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
 	 * @return string An HTML form for creating a new ad
 	 * @dontvalidate $newAd
+	 * @dontverifyrequesthash
 	 */
-	public function newStep2Action(Tx_NasMarket_Domain_Model_Ad $newAd = NULL) {
-                $cat = $this->categoryRepository->findByUid($this->request->getArgument('category'));
+	public function newStep2Action(Tx_NasMarket_Domain_Model_Ad $newAd) {
+                $temp = $this->request->getArgument('newAd');
+                $cat = $this->categoryRepository->findByUid($temp['category']);
                 $this->view->assign('category',array($cat));
                 $this->view->assign('newAd',$newAd);
                 
-                //t3lib_div::debug($this->settings);                
-                //t3lib_div::devLog('arguments', 'test' , 0, $this->request->getArguments());
+                t3lib_div::debug($newAd, 'newStep2');
+                t3lib_div::devLog('test new Step 2', 'newStep2', 0, array($_POST,$_GET, $_FILES, realpath('.')));
+                t3lib_div::devLog('arguments', 'test' , 0, $this->request->getArguments());
         }
         
         /**
@@ -102,6 +108,7 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 		$this->adRepository->add($newAd);
 		$this->flashMessages->add('Your new ad was created.');
 		$this->redirect('index','Market');
+                //t3lib_div::debug($newAd, 'create');
 	}
         
         /**

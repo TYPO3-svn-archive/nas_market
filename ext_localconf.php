@@ -6,11 +6,11 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Pi1',
 	array(
                 'Market'    =>  'index',
-                'Ad'        =>  'new, newStep2, ajaxNewAddImageUpload, ajaxNewCat2, ajaxNewCat3, ajaxNewSelectedCat'
+                'Ad'        =>  'new, newStep2, create, ajaxNewAddImageUpload, ajaxNewCat2, ajaxNewCat3, ajaxNewSelectedCat'
 	),
 	array(
                 'Market'    =>  'index',
-                'Ad'        =>  'new, newStep2, ajaxNewAddImageUpload, ajaxNewCat2, ajaxNewCat3, ajaxNewSelectedCat'
+                'Ad'        =>  'new, newStep2, create, ajaxNewAddImageUpload, ajaxNewCat2, ajaxNewCat3, ajaxNewSelectedCat'
 	)
 );
 

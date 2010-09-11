@@ -49,7 +49,7 @@ CREATE TABLE tx_nasmarket_domain_model_ad (
 	dl_address tinytext,
 	dl_country tinytext,
 	show_phone tinyint(1) unsigned DEFAULT '0' NOT NULL,
-	show_email tinytext,
+	show_email tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	duration tinytext,
 	price double(11,2) DEFAULT '0.00' NOT NULL,
         pricetype tinyint(1) unsigned DEFAULT '0' NOT NULL,

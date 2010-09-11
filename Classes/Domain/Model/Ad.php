@@ -150,6 +150,16 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $poster;
 	
 	/**
+	 * Constructor of the Ad
+	 *
+	 * @return void
+	 */	
+	public function __construct() {    
+		$this->showEmail = false;
+		$this->showPhone = false;
+	}
+	
+	/**
 	 * Setter for starttime
 	 *
 	 * @param int $starttime starttime

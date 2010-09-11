@@ -97,7 +97,8 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'config'  => array(
 				'type' => 'text',
 				'rows' => 30,
-				'cols' => 80
+				'cols' => 80,
+                                'eval' => 'required'
 			)
 		),
 		'type1' => array(
@@ -223,7 +224,7 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'config'  => array(
 				'type' => 'input',
 				'size' => 7,
-				'eval' => 'double2'
+				'eval' => 'double2,required',
 			)
 		),
                 'pricetype' => array(
