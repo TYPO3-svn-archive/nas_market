@@ -105,11 +105,14 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
 	 * @return void
 	 */
-	public function createAction(Tx_NasMarket_Domain_Model_ad $newAd) {
-		$this->adRepository->add($newAd);
+	public function createAction(Tx_NasMarket_Domain_Model_Ad $newAd = NULL) {
+                t3lib_div::debug($newAd, 'create');
+                $newAd->setStarttime(time());
+                $newAd->setDuration($newAd->getDuration());
+                $this->adRepository->add($newAd);
 		$this->flashMessages->add('Your new ad was created.');
 		$this->redirect('index','Market');
-                //t3lib_div::debug($newAd, 'create');
+                
 	}
         
         /**
