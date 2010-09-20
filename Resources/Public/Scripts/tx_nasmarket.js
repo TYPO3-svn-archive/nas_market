@@ -2,7 +2,7 @@ function setCat1(cat1){
     $.ajax({
 	type: "GET",
 	url: '',
-	data: 'tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewSelectedCat&tx_nasmarket_pi1[cat]='+cat1,
+	data: 'id='+market_pid+'&tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewSelectedCat&tx_nasmarket_pi1[cat]='+cat1,
 	success: function(data){
             $("#selected_cats").html(data);
 	},
@@ -13,7 +13,7 @@ function setCat1(cat1){
     $.ajax({
 	type: "GET",
 	url: '',
-	data: 'tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewCat2&tx_nasmarket_pi1[parentCat]='+cat1,
+	data: 'id='+market_pid+'&tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewCat2&tx_nasmarket_pi1[parentCat]='+cat1,
 	success: function(data){
             $("#secondcat").html(data);
             $("#thirdcat").html('');
@@ -26,7 +26,7 @@ function setCat2(cat2){
     $.ajax({
 	type: "GET",
 	url: '',
-	data: 'tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewSelectedCat&tx_nasmarket_pi1[cat]='+cat2,
+	data: 'id='+market_pid+'&tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewSelectedCat&tx_nasmarket_pi1[cat]='+cat2,
 	success: function(data){
             $("#selected_cats").html(data);
 	},
@@ -37,7 +37,7 @@ function setCat2(cat2){
     $.ajax({
 	type: "GET",
 	url: '',
-	data: 'tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewCat3&tx_nasmarket_pi1[parentCat]='+cat2,
+	data: 'id='+market_pid+'&tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewCat3&tx_nasmarket_pi1[parentCat]='+cat2,
 	success: function(data){
             $("#thirdcat").html(data);
 	}
@@ -49,7 +49,7 @@ function setCat3(cat3){
     $.ajax({
 	type: "GET",
 	url: '',
-	data: 'tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewSelectedCat&tx_nasmarket_pi1[cat]='+cat3,
+	data: 'id='+market_pid+'&tx_nasmarket_pi1[controller]=Ad&tx_nasmarket_pi1[action]=ajaxNewSelectedCat&tx_nasmarket_pi1[cat]='+cat3,
 	success: function(data){
             $("#selected_cats").html(data);
 	},

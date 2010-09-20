@@ -83,7 +83,7 @@
 		
 		<div class="right_part">
 		    <h4>Einstellungen</h4>
-		    <f:form.checkbox name="different_location" id="different_location" onclick="toggleDLFields();" /><f:translate key="tx_nasmarket_domain_model_ad.different_location" />
+		    <f:form.checkbox name="different_location" id="different_location" onclick="toggleDLFields();" class="checkbox" /><f:translate key="tx_nasmarket_domain_model_ad.different_location" />
 		    <div class="dl_part">
 			<label for="dl_address">Strasse:</label><f:form.textbox id="dl_address" name="dl_address" disabled="disabled"/>
 			<div class="clearer">&nbsp;</div>
@@ -95,20 +95,20 @@
 			<div class="clearer">&nbsp;</div>
 		    </div>
 		    <p>
-			<f:form.checkbox name="show_phone" />Telefonnummer anzeigen<br />
-			<f:form.checkbox name="show_email" />Email-Adresse anzeigen
+			<f:form.checkbox name="show_phone" class="checkbox"/>Telefonnummer anzeigen<br />
+			<f:form.checkbox name="show_email" class="checkbox" />Email-Adresse anzeigen
 		    </p>
 		    <p>
 			<h4>Laufzeit</h4>
-			<f:form.radio property="duration" value="14" />14 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
-			<f:form.radio property="duration" value="30" />30 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
-			<f:form.radio property="duration" value="60" />60 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
+			<f:form.radio property="duration" value="14" class="radio"/>14 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
+			<f:form.radio property="duration" value="30" class="radio"/>30 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
+			<f:form.radio property="duration" value="60" class="radio"/>60 <f:translate key="tx_nasmarket_domain_model_ad.duration_days" />
 		    </p>
 		    <p>
 			<h4>Preis</h4>
 			<label for="pricetype">Preistyp:</label>
-			<f:form.radio property="pricetype" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.pricetype.0" />
-			<f:form.radio property="pricetype" value="1" /><f:translate key="tx_nasmarket_domain_model_ad.pricetype.1" />
+			<f:form.radio property="pricetype" value="0" class="radio"/><f:translate key="tx_nasmarket_domain_model_ad.pricetype.0" />
+			<f:form.radio property="pricetype" value="1" class="radio"/><f:translate key="tx_nasmarket_domain_model_ad.pricetype.1" />
 			<div class="clearer">&nbsp;</div>
 			<label for="price">Preis:</label>
 			<f:form.textbox property="price" class="price"/>&nbsp;&euro;
@@ -117,12 +117,12 @@
 		</div>
 		<div class="left_part">
 		    <label for="type1">Anzeigentyp:</label>
-		    <f:form.radio property="type1" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type1.0" />
-		    <f:form.radio property="type1" value="1" /><f:translate key="tx_nasmarket_domain_model_ad.type1.1" />
+		    <f:form.radio property="type1" value="0" class="radio"/><f:translate key="tx_nasmarket_domain_model_ad.type1.0" />
+		    <f:form.radio property="type1" value="1" class="radio"/><f:translate key="tx_nasmarket_domain_model_ad.type1.1" />
 		    <div class="clearer">&nbsp;</div>
 		    <label for="type2">&nbsp;</label>
-		    <f:form.radio property="type2" value="0" /><f:translate key="tx_nasmarket_domain_model_ad.type2.0" />
-		    <f:form.radio property="type2" value="1" /><f:translate key="tx_nasmarket_domain_model_ad.type2.1" />
+		    <f:form.radio property="type2" value="0" class="radio"/><f:translate key="tx_nasmarket_domain_model_ad.type2.0" />
+		    <f:form.radio property="type2" value="1" class="radio"/><f:translate key="tx_nasmarket_domain_model_ad.type2.1" />
 		    <div class="clearer">&nbsp;</div>
 		    
 		    <label for="title">Titel:</label>

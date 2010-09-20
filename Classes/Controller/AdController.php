@@ -76,7 +76,8 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
                 //t3lib_div::devLog('test', 'newAction', 0, array($_POST,$_GET, $_FILES, realpath('.')));
                 $categories = $this->categoryRepository->findAllByParent();
                 //$ads = $this->adRepository->findAll();
-		$this->view->assign('categories', $categories);
+				$this->view->assign('categories', $categories);
+				$this->view->assign('market_pid', $GLOBALS['TSFE']->id);
         }
         
         /**
