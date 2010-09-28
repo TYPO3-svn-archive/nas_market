@@ -43,7 +43,7 @@ class Tx_NasMarket_Utility_Imageresize {
     public static function resize($filename, $newname, $maxWidth, $maxHeight) {
         $image_info = getimagesize($filename);
         
-        t3lib_div::devLog('test '.$newname, 'Utility_ImageResize', 0, array($filename,$newname,$maxWidth,$maxHeight,$image_info));
+        //t3lib_div::devLog('test '.$newname, 'Utility_ImageResize', 0, array($filename,$newname,$maxWidth,$maxHeight,$image_info));
         
         $image_type = $image_info[2];
         if( $image_type == IMAGETYPE_JPEG ) {
