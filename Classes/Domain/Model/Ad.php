@@ -148,6 +148,16 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @var Tx_NasMarket_Domain_Model_Poster
 	 */
 	protected $poster;
+	
+	/**
+	 * Construtor
+	 */
+	public function __construct() {    
+		$this->differentLocation = false;
+		$this->showEmail = false;
+		$this->showPhone = false;
+	}
+
 
 	
 	/**
@@ -290,7 +300,7 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return void
 	 */
 	public function setDifferentLocation($differentLocation) {
-		$this->differentLocation = $differentLocation;
+		$this->differentLocation = (boolean) $differentLocation;
 	}
 
 	/**
@@ -299,16 +309,16 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return boolean different location than own address
 	 */
 	public function getDifferentLocation() {
-		return $this->differentLocation;
+		return (boolean) $this->differentLocation;
 	}
 	
 	/**
 	 * Returns the boolean state of different_location
 	 *
-	 * @return bool The state of different_location
+	 * @return boolean The state of different_location
 	 */
 	public function isDifferentLocation() {
-		$this->getDifferentLocation();
+		return $this->getDifferentLocation();
 	}
 	
 	/**

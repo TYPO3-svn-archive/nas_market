@@ -61,7 +61,7 @@ function setCat3(cat3){
 };
 
 function toggleDLFields(){
-    if ($('#different_location:checked').val() == null){
+    if ($('#differentLocation:checked').val() == null){
 	$('#dl_address').attr("disabled", true);
 	$('#dl_zip').attr("disabled", true);
 	$('#dl_city').attr("disabled", true);

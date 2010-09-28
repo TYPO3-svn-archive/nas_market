@@ -2,7 +2,7 @@
 <div class="ad_preview_{f:if(condition:'{ad.type1} == 0', then:'offer',else:'request')}">
     <div class="preview_image">
         <f:if condition="{ad.images.0}">
-            <f:image src="uploads/pics/{ad.images.0}" alt="edit" maxHeight="110px" maxWidth="110px" />
+            <f:image src="{nasm:format.showThumb(image: ad.images.0)}" alt="edit" maxHeight="110px" maxWidth="110px" />
         </f:if>
     </div>
     <div class="preview_title">

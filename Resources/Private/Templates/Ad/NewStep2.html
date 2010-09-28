@@ -53,13 +53,16 @@
 				// enable upload button
 				this.enable();
 				
+				data = JSON.parse(response);
+				//alert (response);
+				//alert('test');
+				//alert ('data '+data.file);
+				
 				// add file to the list
-				if (response == 'error_toobig') {
-				    alert ('File too big');
-				} else  if (response == 'error') {
-				    alert ('Error Uploading File');
+				if (data.error != 0) {
+				    alert (data.error);
 				} else {
-				    $('<div class="img_file"><img src="'+response+'" /></div>').appendTo('#uploaded_images');
+				    $('<div class="img_file"><img src="'+data.thumb+'" /><input type="hidden" value="'+data.file+'" name="tx_nasmarket_pi1[newAd][images][]"/></div>').appendTo('#uploaded_images');
 				}
 				
 				//make a count up
@@ -83,20 +86,20 @@
 		
 		<div class="right_part">
 		    <h4>Einstellungen</h4>
-		    <f:form.checkbox name="different_location" id="different_location" onclick="toggleDLFields();" class="checkbox" /><f:translate key="tx_nasmarket_domain_model_ad.different_location" />
+		    <f:form.checkbox property="differentLocation" value="false" id="differentLocation" onclick="toggleDLFields();" class="checkbox" /><f:translate key="tx_nasmarket_domain_model_ad.different_location" />
 		    <div class="dl_part">
-			<label for="dl_address">Strasse:</label><f:form.textbox id="dl_address" name="dl_address" disabled="disabled"/>
+			<label for="dlAddress">Strasse:</label><f:form.textbox id="dl_address" property="dlAddress" disabled="disabled"/>
 			<div class="clearer">&nbsp;</div>
-			<label for="dl_zip">PLZ:</label><f:form.textbox id="dl_zip" name="dl_zip" disabled="disabled"/>
+			<label for="dlZip">PLZ:</label><f:form.textbox id="dl_zip" property="dlZip" disabled="disabled"/>
 			<div class="clearer">&nbsp;</div>
-			<label for="dl_city">Stadt:</label><f:form.textbox id="dl_city" name="dl_city" disabled="disabled"/>
+			<label for="dlCity">Stadt:</label><f:form.textbox id="dl_city" property="dlCity" disabled="disabled"/>
 			<div class="clearer">&nbsp;</div>
-			<label for="dl_country">Land:</label><f:form.textbox id="dl_country" name="dl_country" disabled="disabled"/>
+			<label for="dlCountry">Land:</label><f:form.textbox id="dl_country" property="dlCountry" disabled="disabled"/>
 			<div class="clearer">&nbsp;</div>
 		    </div>
 		    <p>
-			<f:form.checkbox name="show_phone" class="checkbox"/>Telefonnummer anzeigen<br />
-			<f:form.checkbox name="show_email" class="checkbox" />Email-Adresse anzeigen
+			<f:form.checkbox property="showPhone" class="checkbox" value="false"/>Telefonnummer anzeigen<br />
+			<f:form.checkbox property="showEmail" class="checkbox" value="false" />Email-Adresse anzeigen
 		    </p>
 		    <p>
 			<h4>Laufzeit</h4>

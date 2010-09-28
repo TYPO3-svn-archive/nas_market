@@ -68,19 +68,20 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 * New action for this controller.
 	 *
 	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
+	 * @param string error Error to show
 	 * @return string An HTML Page for Cat-Selection (1.Step)
 	 * @dontvalidate $newAd
 	 * @dontverifyrequesthash
 	 */
 	public function newAction(Tx_NasMarket_Domain_Model_Ad $newAd = NULL) {
-                //t3lib_div::devLog('test', 'newAction', 0, array($_POST,$_GET, $_FILES, realpath('.')));
-                $categories = $this->categoryRepository->findAllByParent();
+                t3lib_div::devLog('test', 'newAction', 0, array($_POST,$_GET, $_FILES, realpath('.')));
+				$categories = $this->categoryRepository->findAllByParent();
                 //$ads = $this->adRepository->findAll();
 				$this->view->assign('categories', $categories);
 				$this->view->assign('market_pid', $GLOBALS['TSFE']->id);
         }
         
-        /**
+    /**
 	 * New Step 2 action for this controller.
 	 *
 	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
@@ -90,7 +91,14 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 */
 	public function newStep2Action(Tx_NasMarket_Domain_Model_Ad $newAd) {
                 $temp = $this->request->getArgument('newAd');
-                $cat = $this->categoryRepository->findByUid($temp['category']);
+				$cat = $this->categoryRepository->findByUid($temp['category']);
+				if (!is_object($cat)) {
+					//t3lib_div::debug($cat, 'newStep2');
+					$error = 'You need to select a category first';
+					$this->flashMessages->add($error);
+					$this->redirect('new');
+				}
+				
                 $newAd->addCategory($cat);
                 $this->view->assign('category',array($cat));
                 $this->view->assign('newAd',$newAd);
@@ -105,15 +113,15 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 *
 	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
 	 * @return void
+	 * @dontverifyrequesthash
 	 */
 	public function createAction(Tx_NasMarket_Domain_Model_Ad $newAd = NULL) {
-                t3lib_div::debug($newAd, 'create');
-                $newAd->setStarttime(time());
+				//t3lib_div::debug($newAd, 'create');
+                $newAd->setStarttime(time()-100);
                 $newAd->setDuration($newAd->getDuration());
                 $this->adRepository->add($newAd);
-		$this->flashMessages->add('Your new ad was created.');
-		$this->redirect('index','Market');
-                
+				$this->flashMessages->add('Your new ad was created.');
+				$this->redirect('index','Market');
 	}
         
         /**
@@ -125,7 +133,7 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
         public function ajaxNewAddImageUploadAction() {
             t3lib_div::devLog('test', 'test', 0, array($_POST,$_GET, $_FILES, realpath('.')));
             if ($_FILES['myfile']['size'] > ($this->settings['maxUploadImageSize']*1024)){
-                echo "error_toobig";
+                $returner['error'] = 'File too big';
             } else {
                 $uploaddir = $this->settings['uploadImagePath'];
                 $userdir = $GLOBALS['TSFE']->fe_user->user['username'].'/';
@@ -141,16 +149,22 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
                 $thumbfile = $this->basePath.'/'.$uploaddir.$userdir.$thumbname;
                 //t3lib_div::devLog('dir/file', 'ajaxNewAddImageUploadAction', 0, array($uploaddir,$uploadfile));
                    
+				$returner = array();
+				$returner['error'] = 0;
                 //move_uploaded_file ist die Standard PHP-Funktion um Dateien auf dem Server zu verarbeiten
                 if (move_uploaded_file($_FILES['myfile']['tmp_name'], $uploadfile)) {
                     Tx_NasMarket_Utility_Imageresize::resize($uploadfile,$uploadfile,$this->settings['imageWidth'],$this->settings['imageHeight']);
                     Tx_NasMarket_Utility_Imageresize::resize($uploadfile,$thumbfile,$this->settings['thumbWidth'],$this->settings['thumbHeight']);
-                    echo $this->settings['uploadImagePath'].$userdir.$thumbname;
+					$returner['file'] = $this->settings['uploadImagePath'].$userdir.$filename;
+					$returner['thumb'] = $this->settings['uploadImagePath'].$userdir.$thumbname;
                 } else {
                     // Als echo keinesfalls false benutzen. Führt zu Konflikten mit dem Ajax-Request
-                    echo "error";
+					$returner['error'] = 'Error Uploading File';
                 }
             }
+			$json_returner = json_encode($returner);
+			t3lib_div::devLog('returner', 'ajaxNewAddImageUploadAction', 0, array($returner,$json_returner));
+			echo $json_returner;
             exit;
         }
         

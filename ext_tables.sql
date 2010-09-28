@@ -52,7 +52,7 @@ CREATE TABLE tx_nasmarket_domain_model_ad (
 	show_email tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	duration tinytext,
 	price double(11,2) DEFAULT '0.00' NOT NULL,
-        pricetype tinyint(1) unsigned DEFAULT '0' NOT NULL,
+    pricetype tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
 	poster varchar(255) DEFAULT '',
 
@@ -60,8 +60,8 @@ CREATE TABLE tx_nasmarket_domain_model_ad (
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
-        starttime int(11) unsigned DEFAULT '0' NOT NULL,
-        endtime int(11) unsigned DEFAULT '0' NOT NULL,
+    starttime int(11) unsigned DEFAULT '0' NOT NULL,
+    endtime int(11) unsigned DEFAULT '0' NOT NULL,
 
 	t3ver_oid int(11) DEFAULT '0' NOT NULL,
 	t3ver_id int(11) DEFAULT '0' NOT NULL,
