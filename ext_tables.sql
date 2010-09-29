@@ -100,7 +100,7 @@ CREATE TABLE tx_nasmarket_ad_category_mm (
 );
 
 CREATE TABLE fe_users (
-	agb_accepted tinyint(1) unsigned DEFAULT '0' NOT NULL,
-	show_email tinyint(1) unsigned DEFAULT '0' NOT NULL,
-	show_phone tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_nasmarket_agb_accepted tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_nasmarket_show_email tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_nasmarket_show_phone tinyint(1) unsigned DEFAULT '0' NOT NULL,
 );

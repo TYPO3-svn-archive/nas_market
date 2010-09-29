@@ -263,7 +263,7 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 			'config'  => array(
 				'type' => 'select',
 				'foreign_table' => 'fe_users',
-				'foreign_table_where' => "AND fe_users.tx_extbase_type='Tx_NasMarket_Domain_Model_Poster'",
+				//'foreign_table_where' => "AND fe_users.tx_extbase_type='Tx_NasMarket_Domain_Model_Poster'",
 				'items' => array(
 					array('--none--', 0),
 				)

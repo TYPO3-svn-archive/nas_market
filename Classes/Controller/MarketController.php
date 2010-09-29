@@ -51,7 +51,7 @@ class Tx_NasMarket_Controller_MarketController extends Tx_Extbase_MVC_Controller
 	 */
 	protected function initializeAction() {
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
-                $this->adRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_AdRepository');
+		$this->adRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_AdRepository');
 		//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
 	}
 	/**
@@ -59,9 +59,9 @@ class Tx_NasMarket_Controller_MarketController extends Tx_Extbase_MVC_Controller
 	 */
 	public function indexAction() {
 		$categories = $this->categoryRepository->findAllByParent();
-                $ads = $this->adRepository->findAll();
+        $ads = $this->adRepository->findAll();
 		$this->view->assign('categories', $categories);
-                $this->view->assign('ads', $ads);
-        }	
+        $this->view->assign('ads', $ads);
+    }	
 }
 ?>

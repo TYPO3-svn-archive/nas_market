@@ -30,5 +30,21 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Tx_NasMarket_Domain_Repository_PosterRepository extends Tx_Extbase_Persistence_Repository {
+	
+	public function findAllNoPid() {
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		return $query->execute();
+	}
+	
+	public function findByUidNoPid($uid) {
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		$query->matching(
+			$query->equals('uid', $uid)
+		);
+		return $query->execute();
+	}
+
 }
 ?>

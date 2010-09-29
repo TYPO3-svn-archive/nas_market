@@ -39,7 +39,7 @@ class Tx_NasMarket_ViewHelpers_Security_IfNewAdUserViewHelper extends Tx_Fluid_V
 		//if ($accessControllService->isLoggedIn($person) || $accessControllService->backendAdminIsLoggedIn()) {
 		$settings = $this->templateVariableContainer->get('settings');
 		//t3lib_div::debug($settings,'UH');
-		if ($accessControllService->isInNewAddUG($settings['newAdUG'])) {
+		if ($accessControllService->isInNewAddUG($settings['newAdUG']) AND $accessControllService->hasTermsAccepted()) {
 			return $this->renderThenChild();
 		} else {
 			return $this->renderElseChild();

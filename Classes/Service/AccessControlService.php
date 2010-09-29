@@ -45,6 +45,20 @@ class Tx_NasMarket_Service_AccessControlService implements t3lib_Singleton {
                 }
                 //t3lib_div::debug($groups,'ACS');
                 return FALSE;
+	}
+	
+	/**
+	 * Tests, if the user has accepted the business-terms
+	 *
+	 * @return bool The result; TRUE if the user hast accepted; other: false
+	 */
+	public function hasTermsAccepted() {
+                if($this->hasLoggedInFrontendUser() && !empty($GLOBALS['TSFE']->fe_user->user['uid'])) {
+                    if ($GLOBALS['TSFE']->fe_user->user['tx_nasmarket_agb_accepted'] == 1){
+                        return TRUE;
+                    }
+                }
+                return FALSE;
 	}	
 		
 	public function backendAdminIsLoggedIn() {

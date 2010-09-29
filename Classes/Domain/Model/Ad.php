@@ -145,9 +145,16 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * The Ads Poster
 	 *
-	 * @var Tx_NasMarket_Domain_Model_Poster
+	 * @var Tx_NasMarket_Domain_Model_Poster The Poster of the Ad
 	 */
 	protected $poster;
+	
+	/**
+	 * The Ads PosterId
+	 *
+	 * @var int
+	 */
+	protected $posterId;
 	
 	/**
 	 * Construtor
@@ -558,17 +565,45 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @param Tx_NasMarket_Domain_Model_Poster $poster The Poster of the Ad
 	 * @return void
 	 */
-	public function setPoster(Tx_NasMarket_Domain_Model_Poster $poster) {
+	public function setPoster(Tx_NasMarket_Domain_Model_Poster $poster = NULL) {
 		$this->poster = $poster;
 	}
 
 	/**
 	 * Returns the poster value
 	 *
-	 * @return Tx_NasMarket_Domain_Model_Poster
+	 * @return Tx_NasMarket_Domain_Model_Poster The Poster of the Ad
 	 */
 	public function getPoster() {
+		//t3lib_div::debug($this->poster,'id?');
+		if (!is_object($this->poster)){
+			$posterRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_PosterRepository');
+			$feuser = $posterRepository->findByUidNoPid($this->getPosterId());
+			$feuser = $feuser[0];
+			$this->poster = $feuser;
+		}
 		return $this->poster;
+	}
+	
+	/**
+	 * Returns the poster Id value
+	 *
+	 * @return int
+	 */
+	public function getPosterId() {
+		//t3lib_div::debug($this->posterId,'id?');
+		return $this->posterId;
+	}
+	
+	/**
+	 * Sets the posterId value
+	 *
+	 * @param int $posterId The Poster of the Ad
+	 * @return void
+	 */
+	public function setPosterId($id = 0) {
+		//t3lib_div::debug($this->posterId,'id?');
+		$this->posterId = $id;
 	}
 	
 }

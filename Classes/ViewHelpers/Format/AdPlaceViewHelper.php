@@ -34,19 +34,18 @@ class Tx_NasMarket_ViewHelpers_Format_AdPlaceViewHelper extends Tx_Fluid_Core_Vi
 	 * @return string Formatted end date
 	 */
 	public function render($ad) {
-		//t3lib_div::debug($ad->getPoster());
+		//t3lib_div::debug($ad->getPoster(),'poster');
+		//t3lib_div::debug($ad,'ad');
 		$output = '&nbsp;';
-                //TODO: get the Fe-User-Class working
-                // for now: only different_location is working
+        //TODO: get the Fe-User-Class working
+        // for now: only different_location is working
 		if ($ad->getDifferentLocation()){
-                    $output = $ad->getDlCity();  
-                } else {
-                    $user = $ad->getPoster();
-                    
-                    //t3lib_div::debug($user,'user');
-                }
-                if ($output == '') $output = '&nbsp;';
-                return $output;
+            $output = $ad->getDlCity();  
+		} else {
+            $output = $ad->getPoster()->getCity();
+		}
+		if ($output == '') $output = '&nbsp;';
+		return $output;
 	}
         
 }

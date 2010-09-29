@@ -10,38 +10,33 @@ page.includeJS {
 #######################################################
 # Class Mapping
 config.tx_extbase.persistence.classes{
-#	Tx_Extbase_Domain_Model_FrontendUser {
-#		subclasses {
-#			Tx_NasMarket_Domain_Model_Poster = Tx_NasMarket_Domain_Model_Poster
-#		}
-#	}
-	Tx_NasMarket_Domain_Model_Poster {
-		mapping {
-			tableName = fe_users
-#			recordType = Tx_NasMarket_Domain_Model_Poster
+		Tx_Extbase_Domain_Model_FrontendUser {
+			subclasses {
+				Tx_NasMarket_Domain_Model_Poster = Tx_NasMarket_Domain_Model_Poster
+			}
 		}
-	}
+		Tx_NasMarket_Domain_Model_Poster {
+			mapping {
+				tableName = fe_users
+				columns {
+					tx_nasmarket_agb_accepted.mapOnProperty = agbAccepted
+					tx_nasmarket_show_phone.mapOnProperty = showPhone
+					tx_nasmarket_show_email.mapOnProperty = showEmail
+				}
+			}
+		}
+		Tx_NasMarket_Domain_Model_Ad {
+			mapping {
+				columns {
+					poster.mapOnProperty = posterId
+				}
+			}
+		}
 }
 
 plugin.tx_nasmarket {
 	settings {
 	}
-
-#	persistence {
-#		classes{
-#			Tx_Extbase_Domain_Model_FrontendUser {
-#				subclasses {
-#					Tx_NasMarket_Domain_Model_Poster = Tx_NasMarket_Domain_Model_Poster
-#				}
-#			}
-#			Tx_NasMarket_Domain_Model_Poster {
-#				mapping {
-#					tableName = fe_users
-#					recordType = Tx_NasMarket_Domain_Model_Poster
-#				}
-#			}
-#		}
-#	}
 	
 	_CSS_DEFAULT_STYLE (
 	)

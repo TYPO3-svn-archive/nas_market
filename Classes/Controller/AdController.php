@@ -59,9 +59,10 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
                 
                 $this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
                 $this->adRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_AdRepository');
-                
+				$this->posterRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_PosterRepository');
+				
                 $this->basePath = realpath('.');
-		//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
+				//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
 	}
 	
         /**
@@ -119,6 +120,8 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 				//t3lib_div::debug($newAd, 'create');
                 $newAd->setStarttime(time()-100);
                 $newAd->setDuration($newAd->getDuration());
+				
+				$newAd->setPosterId($GLOBALS['TSFE']->fe_user->user['uid']);
                 $this->adRepository->add($newAd);
 				$this->flashMessages->add('Your new ad was created.');
 				$this->redirect('index','Market');
