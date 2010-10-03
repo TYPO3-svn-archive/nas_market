@@ -110,22 +110,22 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
         }
         
         /**
-	 * Creates a new ad
-	 *
-	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
-	 * @return void
-	 * @dontverifyrequesthash
-	 */
-	public function createAction(Tx_NasMarket_Domain_Model_Ad $newAd = NULL) {
-				//t3lib_div::debug($newAd, 'create');
-                $newAd->setStarttime(time()-100);
-                $newAd->setDuration($newAd->getDuration());
-				
-				$newAd->setPosterId($GLOBALS['TSFE']->fe_user->user['uid']);
-                $this->adRepository->add($newAd);
-				$this->flashMessages->add('Your new ad was created.');
-				$this->redirect('index','Market');
-	}
+		* Creates a new ad
+		*
+		* @param Tx_NasMarket_Domain_Model_Ad $newAd
+		* @return void
+		* @dontverifyrequesthash
+		*/
+	   public function createAction(Tx_NasMarket_Domain_Model_Ad $newAd = NULL) {
+				   //t3lib_div::debug($newAd, 'create');
+				   $newAd->setStarttime(time()-100);
+				   $newAd->setDuration($newAd->getDuration());
+				   $newAd->setPosterId($GLOBALS['TSFE']->fe_user->user['uid']);
+				   
+				   $this->adRepository->add($newAd);
+				   $this->flashMessages->add('Your new ad was created.');
+				   $this->redirect('index','Market');
+	   }
         
         /**
          * Uploads an Image
