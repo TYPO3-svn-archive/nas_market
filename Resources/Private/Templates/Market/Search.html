@@ -1,0 +1,18 @@
+{namespace nasm=Tx_NasMarket_ViewHelpers}
+<f:layout name="default" />
+
+This Template is for showing the market
+
+<f:section name="header">
+	<f:render partial="searchBar" arguments="{categories:categories,sStuff:sStuff}" />
+<f:flashMessages />    
+</f:section>
+
+<f:section name="left">
+    <f:render partial="path" arguments="{ad:ad}" />
+    <f:render partial="categoryTree" arguments="{categories:categories}" />
+</f:section>
+
+<f:section name="main">
+    <f:render partial="resultList" arguments="{ads:ads}" />
+</f:section>

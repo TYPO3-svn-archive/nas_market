@@ -3,6 +3,11 @@
     line-height: 1px;
     height: 1px;
     font-size: 1px;
+    border: none;
+}
+
+.tx-nasmarket-pi1 .main .ads div.clearer {
+    border: none;
 }
 
 .tx-nasmarket-pi1 {
@@ -131,12 +136,21 @@
     display: block;
     float: left;
     width: 150px;
-    height: 300px;
+    /*height: 300px;*/
 }
 
 /* Category-Box */
 .tx-nasmarket-pi1 .left .categories_box {
     
+}
+
+.tx-nasmarket-pi1 .left .categories_box a{
+    text-decoration: none;
+    color: #000;
+}
+
+.tx-nasmarket-pi1 .left .categories_box a:hover{
+    font-style: oblique;
 }
 
 .tx-nasmarket-pi1 .left .categories_box ul {
@@ -147,6 +161,12 @@
 
 .tx-nasmarket-pi1 .left .categories_box ul.subcat {
     margin: 0;
+    list-style: circle;
+    list-style-position: inside;
+}
+
+.tx-nasmarket-pi1 .left .categories_box ul.subcat ul.subsubcat{
+    margin-left: 10;
     list-style: circle;
     list-style-position: inside;
 }
@@ -238,6 +258,95 @@
 .tx-nasmarket-pi1 .main_noleft .selected {
     margin-bottom: 5px;
     margin-top: 5px;
+}
+
+/*************************************************/
+/* singleAd                                      */
+.tx-nasmarket-pi1 .singleAd {
+    display: block;
+    position: relative;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleHeader{
+    padding: 5px;
+    background-color: #ddd;
+    border: 1px solid black;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleHeader .ad_nr{
+    float: right;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleHeader .title{
+    margin: 0;
+    font-weight: bold;
+    font-size: 125%;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleHeader .counter{
+    float: right;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleMain{
+    margin-top: 5px;
+    border: 1px solid #000;
+    padding: 5px;
+    padding-top: 10px;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleMain .images{
+    display: block;
+    float: left;
+    width: 320px;
+    border: 1px solid #000;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleMain .images .preview_image{
+    display: block;
+    width: 300px;
+    height: 200px;
+    margin-left: 9px;
+    background-color: #bbb;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleMain .images .infoText{
+    font-size: 80%;
+    font-weight: bold;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleMain .images .thumbs{
+    margin-top: 3px;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleMain .images .thumbs .thumb{
+    display: block;
+    float: left;
+    width: 140px;
+    height: 100px;
+    background-color: #bbb;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleMain .infos{
+    display: block;
+    float: left;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleMain .infos .line{
+    display: block;
+    width: 365px;
+}
+
+.tx-nasmarket-pi1 .singleAd .singleMain .infos .line .line_title{
+    font-weight: bold;
+    width: 140px;
+    display: block;
+    float: left;
 }
 
 /*************************************************/

@@ -6,13 +6,13 @@
         </f:if>
     </div>
     <div class="preview_title">
-        {ad.title}
+        <f:link.action action="singleDetail" controller="Ad" arguments="{ad:ad}">{ad.title}</f:link.action>
     </div>
     <div class="preview_end">
         <nasm:format.adEnd ad="{ad}" />
     </div>
     <div class="preview_price">
-        <f:format.currency currencySign="€">{ad.price}</f:format.currency>
+        <f:format.currency currencySign="&euro;">{ad.price}</f:format.currency>
     </div>
     <div class="preview_place">
         <nasm:format.adPlace ad="{ad}" />

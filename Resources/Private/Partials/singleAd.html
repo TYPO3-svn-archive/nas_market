@@ -1,0 +1,76 @@
+{namespace nasm=Tx_NasMarket_ViewHelpers}
+<div class="singleAd">
+    <div class="singleHeader">
+	<div class="ad_nr">Artikelnummer: {ad.uid}</div>
+	<div class="title">{ad.title}</div>
+	<div class="counter">Besucher: {ad.viewCounter}</div>
+	<div class="price">Preis: <f:format.currency currencySign="&euro;">{ad.price}</f:format.currency> (<f:translate key="tx_nasmarket_domain_model_ad.pricetype.{ad.pricetype}" />)</div>
+    </div>
+    <div class="singleMain">
+	<div class="images">
+	    <div class="preview_image" id="preview_image">
+		&nbsp;
+	    </div>
+	    <br />
+	    <span class="infoText">Zum Vergrößern auf das Bild klicken</span>
+	    <div class="thumbs">
+		<div class="thumb">
+		    &nbsp;    
+		</div>
+		<div class="thumb">
+		    &nbsp;    
+		</div>
+		<div class="thumb">
+		    &nbsp;    
+		</div>
+		<div class="thumb">
+		    &nbsp;    
+		</div>
+	    </div>
+	</div>
+	<div class="infos">
+	    <div class="line">
+		<span class="line_title">Veröffentlicht:</span>
+		<nasm:format.adStart ad="{ad}" />
+		<div class="clearer">&nbsp;</div>
+	    </div>	    
+	    <div class="line">
+		<span class="line_title">Preis:</span>
+		<f:format.currency currencySign="&euro;">{ad.price}</f:format.currency>
+		<div class="clearer">&nbsp;</div>
+	    </div>
+	    <div class="line">
+		<span class="line_title">Artikelstandort:</span>
+		<nasm:format.adPlace ad="{ad}" />
+		<div class="clearer">&nbsp;</div>
+	    </div>
+	    <div class="line">&nbsp;</div>
+	    <div class="line">&nbsp;</div>
+	    <div class="line">
+		<span class="line_title">Ansprechpartner:</span>
+		{ad.poster.username}
+		<div class="clearer">&nbsp;</div>
+	    </div>
+	    <div class="line">
+		<span class="line_title">PLZ / Ort:</span>
+		{ad.poster.zip} {ad.poster.city}
+		<div class="clearer">&nbsp;</div>
+	    </div>
+	    <f:if condition="{ad.showPhone}">
+	    <div class="line">
+		<span class="line_title">Telefon:</span>
+		{ad.poster.telephone}
+		<div class="clearer">&nbsp;</div>
+	    </div>
+	    </f:if>
+	    <f:if condition="{ad.showEmail}">
+	    <div class="line">
+		<span class="line_title">Email:</span>
+		{ad.poster.email}
+		<div class="clearer">&nbsp;</div>
+	    </div>
+	    </f:if>
+	</div>
+	<div class="clearer">&nbsp;</div>
+    </div>
+</div>

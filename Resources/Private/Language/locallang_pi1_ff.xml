@@ -6,7 +6,17 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="ff.sheet_general">General</label>
+						<label index="ff.sheet_general">General</label>
+						<label index="ff.controller_action">Standard Action</label>
+						<label index="ff.controller_action.all">Whole Set</label>
+						<label index="ff.controller_action.search">Search</label>
+						<label index="ff.controller_action.cattree">Category Tree</label>
+						<label index="ff.preview_items">Amount of Previews on Start Page</label>
+						<label index="ff.preview_sorting">Sorting of Previews on Start Page</label>
+						<label index="ff.preview_sorting.ending_de">End-Date descending</label>
+						<label index="ff.preview_sorting.create_de">Create-Date descending</label>
+						<label index="ff.preview_sorting.ending_a">End-Date ascending</label>
+						<label index="ff.preview_sorting.create_a">Create-Date ascending</label>
                         <label index="ff.storage_pid">Storage PID</label>
                         <label index="ff.new_ad_ug">User Group allowed to create new Ads</label>
                         

@@ -1,0 +1,32 @@
+<div class="categories_box">
+    <div class="box_header">Kategorien</div>
+    <div class="box_main">
+        <f:if condition="{categories}">
+            <f:then>
+                <ul>
+                <f:for each="{categories}" as="cat">
+                    <li><f:link.action action="search" controller="Market" arguments="{scat:cat.uid}">{cat.title}</f:link.action>
+                    <f:if condition="{cat.children}">
+                        <ul class="subcat">
+                            <f:for each="{cat.children}" as="child">
+                                <li><f:link.action action="search" controller="Market" arguments="{scat:child.uid}">{child.title}</f:link.action>
+                                <f:if condition="{child.children}">
+                                    <ul class="subsubcat">
+                                        <f:for each="{child.children}" as="subchild">
+                                            <li><f:link.action action="search" controller="Market" arguments="{scat:subchild.uid}">{subchild.title}</f:link.action></li>
+                                        </f:for>
+                                    </ul>
+                                </f:if>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:if>
+                    </li>
+                </f:for>
+                </ul>
+            </f:then>
+            <f:else>Keine Kategorien</f:else>
+        </f:if>
+    </div>
+    <div class="box_footer">&nbsp;</div>
+</div>

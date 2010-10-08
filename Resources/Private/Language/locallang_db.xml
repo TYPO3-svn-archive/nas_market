@@ -37,6 +37,7 @@
 			<label index="tx_nasmarket_domain_model_ad.category">Category</label>
 			<label index="tx_nasmarket_domain_model_ad.feuser">Feuser</label>
 			<label index="tx_nasmarket_domain_model_ad.poster">Poster</label>
+			<label index="tx_nasmarket_domain_model_ad.view_counter">View Counter</label>
 			<label index="tx_nasmarket_domain_model_poster">Poster</label>
 			<label index="tx_nasmarket_domain_model_poster.agb_accepted">Agb Accepted</label>
 			<label index="tx_nasmarket_domain_model_poster.show_email">Show Email</label>

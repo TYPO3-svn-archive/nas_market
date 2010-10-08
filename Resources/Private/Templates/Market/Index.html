@@ -1,37 +1,15 @@
+{namespace nasm=Tx_NasMarket_ViewHelpers}
 <f:layout name="default" />
 
 This Template is for showing the market
 
 <f:section name="header">
-<div class="search">
-    <div class="titletext">Suchen</div>
-    <div class="newbutton">
-        <f:link.action action="new" controller="Ad">Neue Anzeige</f:link.action>
-    </div>
-    <div class="searchline">
-        <div class="swords">
-            <label for="swords">Was?</label><input type="text" name="swords" />
-        </div>
-        <div class="swhere">
-            <label for="swhere">Wo?</label><input type="text" name="swhere" />
-        </div>
-        <div class="scat">
-            <label for="scat">Kategorie?</label>
-            <select name="scat">
-                <option value="0">Alle</option>
-                <f:for each="{categories}" as="cat">
-                    <option value="{cat.uid}">{cat.title}</option>
-                </f:for>
-            </select>
-        </div>
-        <a class="button" href="#">Finden</a>
-    </div>
-</div>
+	<f:render partial="searchBar" arguments="{categories:categories,sStuff:sStuff}" />
 <f:flashMessages />    
 </f:section>
 
 <f:section name="left">
-    <f:render partial="categories" arguments="{categories:categories}" />
+    <f:render partial="categoryTree" arguments="{categories:categories}" />
 </f:section>
 
 <f:section name="main">
@@ -39,13 +17,15 @@ This Template is for showing the market
     <div class="ads">
         <f:if condition="{ads}">
             <f:then>
-                <f:for each="{ads}" as="ad">
+                <nasm:countedFor each="{ads}" as="ad" length="{settings.previewItems}">
                     <f:render partial="adPreview" arguments="{ad:ad}" />
-                </f:for>
+                </nasm:countedFor>
             </f:then>
             <f:else>
                 Keine Anzeigen vorhanden
             </f:else>
         </f:if>
+	<div class="clearer">&nbsp;</div>
     </div>
+    <div class="clearer">&nbsp;</div>
 </f:section>

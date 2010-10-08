@@ -59,11 +59,30 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
                 
                 $this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
                 $this->adRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_AdRepository');
-				$this->posterRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_PosterRepository');
-				
+		$this->posterRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_PosterRepository');
+		
                 $this->basePath = realpath('.');
-				//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
+		//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
 	}
+	
+	/**
+	 * Display single Ad Action
+	 *
+	 * @param Tx_NasMarket_Domain_Model_Ad $ad
+	 * @return string An HTML Page with the Single View
+	 */
+	public function singleDetailAction(Tx_NasMarket_Domain_Model_Ad $ad = NULL) {
+                $categories = $this->categoryRepository->findAllByParent();
+		//Workaround for empty Category in selection
+		$empty_cat = array();
+		$empty_cat[] = array('uid' => 0);
+		$categories = array_merge($empty_cat,$categories);
+		
+		$ad->addView();
+		
+                $this->view->assign('categories', $categories);
+		$this->view->assign('ad', $ad);
+        }
 	
         /**
 	 * New action for this controller.
@@ -76,13 +95,13 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 */
 	public function newAction(Tx_NasMarket_Domain_Model_Ad $newAd = NULL) {
                 t3lib_div::devLog('test', 'newAction', 0, array($_POST,$_GET, $_FILES, realpath('.')));
-				$categories = $this->categoryRepository->findAllByParent();
+		$categories = $this->categoryRepository->findAllByParent();
                 //$ads = $this->adRepository->findAll();
-				$this->view->assign('categories', $categories);
-				$this->view->assign('market_pid', $GLOBALS['TSFE']->id);
+		$this->view->assign('categories', $categories);
+		$this->view->assign('market_pid', $GLOBALS['TSFE']->id);
         }
         
-    /**
+	/**
 	 * New Step 2 action for this controller.
 	 *
 	 * @param Tx_NasMarket_Domain_Model_Ad $newAd
@@ -92,13 +111,13 @@ class Tx_NasMarket_Controller_AdController extends Tx_Extbase_MVC_Controller_Act
 	 */
 	public function newStep2Action(Tx_NasMarket_Domain_Model_Ad $newAd) {
                 $temp = $this->request->getArgument('newAd');
-				$cat = $this->categoryRepository->findByUid($temp['category']);
-				if (!is_object($cat)) {
-					//t3lib_div::debug($cat, 'newStep2');
-					$error = 'You need to select a category first';
-					$this->flashMessages->add($error);
-					$this->redirect('new');
-				}
+		$cat = $this->categoryRepository->findByUid($temp['category']);
+		if (!is_object($cat)) {
+			//t3lib_div::debug($cat, 'newStep2');
+			$error = 'You need to select a category first';
+			$this->flashMessages->add($error);
+			$this->redirect('new');
+		}
 				
                 $newAd->addCategory($cat);
                 $this->view->assign('category',array($cat));

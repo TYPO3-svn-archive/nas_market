@@ -52,16 +52,104 @@ class Tx_NasMarket_Controller_MarketController extends Tx_Extbase_MVC_Controller
 	protected function initializeAction() {
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_CategoryRepository');
 		$this->adRepository = t3lib_div::makeInstance('Tx_NasMarket_Domain_Repository_AdRepository');
-		//t3lib_div::devLog('settings', 'test' , 0, $this->settings);
+		t3lib_div::devLog('settings', 'test' , 0, $this->settings);
 	}
 	/**
-	 * List action for this controller. Displays all questions.
+	 * Standard action for this controller. Displays the whole Market
 	 */
 	public function indexAction() {
 		$categories = $this->categoryRepository->findAllByParent();
-        $ads = $this->adRepository->findAll();
+		//Workaround for empty Category in selection
+		$empty_cat = array();
+		$empty_cat[] = array('uid' => 0);
+		$categories = array_merge($empty_cat,$categories);
+		
+		$ads = $this->getPreviewAds();
+		$sStuff = $this->request->getArguments();
+			
+		//t3lib_div::devLog('ads', 'test' , 0, array($ads[0]->getTitle()));
 		$this->view->assign('categories', $categories);
-        $this->view->assign('ads', $ads);
-    }	
+		$this->view->assign('ads', $ads);
+		$this->view->assign('sStuff', $sStuff);
+	}
+	
+	/**
+	 * Action to show the Search results
+	 */
+	public function searchAction() {
+		$categories = $this->categoryRepository->findAllByParent();
+		//Workaround for empty Category in selection
+		$empty_cat = array();
+		$empty_cat[] = array('uid' => 0);
+		$categories = array_merge($empty_cat,$categories);
+		$ads = $this->getSearchResults();
+		$sStuff = $this->request->getArguments();
+		$sStuff_baseCat = $this->categoryRepository->findBaseCatByUid(intval($sStuff['scat']));
+		$sStuff['scat'] = $sStuff_baseCat;
+		
+		//t3lib_div::devLog('search', 'test' , 0, $sStuff);
+		
+		if (count($ads) == 0) {
+			$sStuff['scat'] = 0;
+			$this->forward('index');
+		}
+		$this->view->assign('categories', $categories);
+		$this->view->assign('ads', $ads);
+		$this->view->assign('sStuff', $sStuff);
+	}
+	
+	/**
+	 * Action to show only the Search-Bar
+	 */
+	public function searchBarIndexAction() {
+		$categories = $this->categoryRepository->findAllByParent();
+		$this->view->assign('categories', $categories);
+	}
+	
+	/**
+	 * Action to show only the CatTree
+	 */
+	public function catTreeIndexAction() {
+		$categories = $this->categoryRepository->findAllByParent();
+		$this->view->assign('categories', $categories);
+	}
+	
+	/**
+	 * Action to show only the Previews
+	 */
+	public function PreviewIndexAction() {
+		$ads = $this->getPreviewAds();
+		$this->view->assign('ads', $ads);
+	}
+	
+	/**
+	 * get the Ads in the right PreviewOrder
+	 */
+	public function getPreviewAds(){
+		switch ($this->settings['previewSorting']) {
+			case 'ENDING_ASC': $ads = $this->adRepository->findAllOrderedBy('endtime','ascending');
+				break;
+			case 'CREATE_DESC': $ads = $this->adRepository->findAllOrderedBy('crdate','descending');
+				break;
+			case 'CREATE_ASC': $ads = $this->adRepository->findAllOrderedBy('crdate', 'ascending');#
+				break;
+			default: $ads = $this->adRepository->findAllOrderedBy('endtime', 'descending');
+				break;
+		}
+		return $ads;
+	}
+	
+	/**
+	 * gets the Ads for the Search Terms
+	 */
+	public function getSearchResults(){
+		$arguments = $this->request->getArguments();
+		//t3lib_div::devLog('search args', 'test' , 0, $arguments);
+		$orderBy = 'endtime';
+		$orderType = 'ascending';
+		$ads = $this->adRepository->getBySearchCrits($arguments['swords'],$arguments['swhere'],$arguments['scat'],$orderBy,$orderType);
+		
+		return $ads;
+	}
 }
 ?>

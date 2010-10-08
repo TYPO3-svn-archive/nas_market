@@ -1,0 +1,21 @@
+<div class="search">
+    <div class="titletext">Suchen</div>
+    <div class="newbutton">
+        <f:link.action action="new" controller="Ad">Neue Anzeige</f:link.action>
+    </div>
+    <div class="searchline">
+	<f:form method="post" controller="Market" action="search" name="searchAds">
+        <div class="swords">
+            <label for="swords">Was?</label><f:form.textbox id="swords" name="swords" value="{sStuff.swords}"/>
+        </div>
+        <div class="swhere">
+            <label for="swhere">Wo?</label><f:form.textbox id="swhere" name="swhere" value="{sStuff.swhere}"/>
+        </div>
+        <div class="scat">
+            <label for="scat">Kategorie?</label>
+            <f:form.select id="scat" name="scat" value="{sStuff.scat}" options="{categories}" optionLabelField="title" optionValueField="uid" />
+        </div>
+        <a class="button" href="javascript:document.searchAds.submit();" >Finden</a>
+	</f:form>
+    </div>
+</div>

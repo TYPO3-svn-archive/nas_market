@@ -7,7 +7,7 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 		'showRecordFieldList' => 'starttime,duration,endtime,title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,price,pricetype,category,poster'
 	),
 	'types' => array(
-		'1' => array('showitem' => 'starttime,duration,endtime,title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,price,pricetype,category,poster')
+		'1' => array('showitem' => 'starttime,duration,endtime,title,description,type1,type2,images,different_location,dl_zip,dl_city,dl_address,dl_country,show_phone,show_email,price,pricetype,category,poster,view_counter')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')
@@ -268,6 +268,16 @@ $TCA['tx_nasmarket_domain_model_ad'] = array(
 					array('--none--', 0),
 				)
     			)
+		),
+                'view_counter' => array(
+			'exclude' => 0,
+			'label'   => 'LLL:EXT:nas_market/Resources/Private/Language/locallang_db.xml:tx_nasmarket_domain_model_ad.view_counter',
+			'config'  => array(
+				'type' => 'input',
+				'size' => 7,
+				'eval' => 'int',
+                                'readOnly' => true
+			)
 		),
 	),
 );

@@ -157,6 +157,12 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $posterId;
 	
 	/**
+	 * counter for views
+	 * @var int
+	 */
+	protected $viewCounter;
+	
+	/**
 	 * Construtor
 	 */
 	public function __construct() {    
@@ -606,5 +612,32 @@ class Tx_NasMarket_Domain_Model_Ad extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->posterId = $id;
 	}
 	
+	/**
+	 * Setter for view count
+	 *
+	 * @param int $viewCounter counter of views
+	 * @return void
+	 */
+	public function setViewCounter($viewCounter) {
+		$this->viewCounter = $viewCounter;
+	}
+
+	/**
+	 * Getter for viewCounter
+	 *
+	 * @return int view count
+	 */
+	public function getViewCounter() {
+		return $this->viewCounter;
+	}
+	
+	/**
+	 * Count the View one up
+	 *
+	 * @return void
+	 */
+	public function addView() {
+		$this->viewCounter ++;
+	}
 }
 ?>

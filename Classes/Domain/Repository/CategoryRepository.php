@@ -48,5 +48,42 @@ class Tx_NasMarket_Domain_Repository_CategoryRepository extends Tx_Extbase_Persi
         #t3lib_div::debug($query);
 	return $query->execute();
     }
+    
+    /**
+    * Finds base cat
+    *
+    * @param Tx_NasMarket_Domain_Model_Category $cat The Cat to get the base cat for
+    * @return array The categories
+    */
+    public function findBaseCat(Tx_NasMarket_Domain_Model_Category $cat = NULL){
+	//t3lib_div::debug($cat->getTitle(),'title');
+	$parent = $cat->getParentcat();
+	if ($parent){
+	    if (!$parent->getParentcat()) $baseCat = $parent;
+	    else $baseCat = $parent->getParentcat();
+	}
+	if (!$baseCat) $baseCat = $cat;
+	return $baseCat;
+    }
+    
+    /**
+    * Finds base cat
+    *
+    * @param integer $cat ID of the Cat to get the base cat for
+    * @return array The categories
+    */
+    public function findBaseCatByUid($cat = NULL){
+	//t3lib_div::debug($cat->getTitle(),'title');
+	$cat = $this->findByUid($cat);
+	if ($cat){
+	    $parent = $cat->getParentcat();
+	    if ($parent){
+		if (!$parent->getParentcat()) $baseCat = $parent;
+		else $baseCat = $parent->getParentcat();
+	    }
+	    if (!$baseCat) $baseCat = $cat;
+	    return $baseCat;
+	}
+    }
 }
 ?>
